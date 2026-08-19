@@ -28,19 +28,27 @@
   .hero--fullscreen {
     height: 70vh;
     min-height: 480px;
+    /* hero__slide--shop をcontainで表示したときに写真の上下にできる余白の色。
+       .hero::afterのグラデーションと同じネイビーにして違和感なく馴染ませる。 */
+    background-color: var(--color-navy);
   }
 
   .hero--fullscreen .hero__slide {
     background-position: center top;
   }
 
-  /* hero-1.jpg(店舗外観)だけ、スマホの縦長画面だと横方向のトリミングが強くなり、
-     看板「リハビリデイ快福庵」の右側が見切れてしまうため、
-     この写真だけ表示位置を右寄りに調整し、看板全体が収まるようにする。
-     他のスライド(hero-2 / hero-3)は上の一括指定(center top)のままでよいため、
+  /* hero-1.jpg(店舗外観)は看板の文字が写真の横幅いっぱいに入っているため、
+     スマホの縦長画面でcoverのまま拡大すると、position指定をどう調整しても
+     看板のどこかが必ず見切れてしまう(横長写真を縦長の枠でcoverする以上、
+     左右のどちらかは切れる)。
+     この写真だけはcontainに切り替え、看板全体が必ず画面内に収まるようにする。
+     写真の上下に生まれる余白には、.hero--fullscreenのbackground-colorがそのまま見える。
+     他のスライド(hero-2 / hero-3)は上の一括指定(cover / center top)のままでよいため、
      このスライドだけを個別に上書きする。 */
   .hero--fullscreen .hero__slide--shop {
-    background-position: 80% top;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
   }
 }
 
