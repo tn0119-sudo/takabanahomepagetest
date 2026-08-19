@@ -1,0 +1,696 @@
+/* ==========================================================================
+   common.css
+
+   【このファイルの役割】
+   ・サイト全体で使う「色」「フォント」「余白サイズ」などをCSS変数として一元管理する
+   ・ヘッダー・フッターなど、全ページ共通で使うパーツのスタイルをまとめる
+   ・ボタン・カードなど、複数ページで使い回す共通パーツのスタイルをまとめる
+
+   ※ トップページだけで使う個別のデザイン(スライダーなど)はindex.cssに書く。
+
+   【CSS変数を使う理由】
+   例えば「メインカラーの黄色を少し変えたい」と思ったとき、
+   このファイルの1箇所(--color-main)を直すだけで、サイト全体の黄色が
+   一括で変わるようにするため。色をコードのあちこちに直接書かない。
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. CSS変数(デザイントークン)
+   -------------------------------------------------------------------------- */
+:root {
+  /* ---- 色 ---- */
+  --color-bg: #ffffff;          /* 背景色(白) */
+  --color-bg-card: #faf9f5;     /* カードなどの背景色(白とわずかに差をつける) */
+  --color-main: #f0b429;        /* メインカラー(黄色) */
+  --color-main-dark: #d89a1b;   /* メインカラーの濃い版(ボタンのhover用) */
+  --color-navy: #1b2a4a;        /* サブカラー(ネイビー) */
+  --color-navy-light: #24365c;  /* ネイビーの明るい版(hover用) */
+  --color-text: #333333;        /* 本文の文字色(ダークグレー) */
+  --color-text-sub: #767676;    /* 補助的な文字色(日付・キャプションなど) */
+  --color-border: #e6e3da;      /* 薄い罫線・区切り線の色 */
+
+  /* ---- フォント ----
+     見出しも本文もNoto Sans JPのみを使用し、
+     太さ(font-weight)の違いだけでメリハリをつける。 */
+  --font-family-base: "Noto Sans JP", sans-serif;
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-bold: 700;
+  --fw-black: 900;
+
+  /* ---- 角丸(少しだけ角丸というデザインルールに合わせて小さめに統一) ---- */
+  --radius-s: 8px;
+  --radius-m: 12px;
+
+  /* ---- レイアウト ---- */
+  --container-width: 1120px;    /* コンテンツの最大幅(PC) */
+  --container-padding: 24px;    /* 画面端とコンテンツの間の余白(スマホ) */
+
+  /* セクション同士の余白。「迷ったら余白を増やす」という方針のため、
+     初期値からしっかり広めに設定している。 */
+  --section-padding-sp: 80px;   /* スマホでのセクション上下の余白 */
+  --section-padding-pc: 140px;  /* PCでのセクション上下の余白 */
+
+  /* ヘッダーの高さ(固定ヘッダーの下に隙間を作る計算に使う) */
+  --header-height: 64px;
+}
+
+/* --------------------------------------------------------------------------
+   2. 基本スタイル
+   -------------------------------------------------------------------------- */
+body {
+  font-family: var(--font-family-base);
+  font-weight: var(--fw-regular);
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  line-height: 1.8; /* 本文を読みやすくするため行間を広めに */
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 見出しは全部Noto Sans JPのまま、太さだけで強弱をつける */
+h1, h2, h3 {
+  font-family: var(--font-family-base);
+  font-weight: var(--fw-black); /* 見出しは最も太いウェイトで力強さを出す */
+  color: var(--color-navy);     /* 見出しはネイビーにして専門性・信頼感を出す */
+  line-height: 1.5;
+}
+
+/* --------------------------------------------------------------------------
+   3. 共通レイアウトパーツ
+   -------------------------------------------------------------------------- */
+
+/* コンテンツの横幅を揃えるための共通の箱。
+   全セクションでこのクラスを使うことで、左右の余白がページ全体で統一される。 */
+.container {
+  width: 100%;
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding-left: var(--container-padding);
+  padding-right: var(--container-padding);
+}
+
+/* 各セクション共通の上下余白。
+   セクションごとに余白がバラバラにならないよう、ここで一括管理する。 */
+.section {
+  padding-top: var(--section-padding-sp);
+  padding-bottom: var(--section-padding-sp);
+}
+
+@media (min-width: 768px) {
+  .section {
+    padding-top: var(--section-padding-pc);
+    padding-bottom: var(--section-padding-pc);
+  }
+}
+
+/* セクション見出しの共通スタイル(「②リハビリ紹介」などの大見出し) */
+.section-heading {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.section-heading__title {
+  font-size: 28px;
+}
+
+@media (min-width: 768px) {
+  .section-heading__title {
+    font-size: 36px;
+  }
+}
+
+/* シグネチャー要素:見出し下の「コードライン」装飾。
+   レッドコード(リハビリ器具)をモチーフにした、細い曲線のアクセント。
+   派手な装飾は使わず、この一箇所だけに"個性"を集約させている。 */
+.section-heading__line {
+  display: block;
+  width: 64px;
+  height: 12px;
+  margin: 16px auto 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 12'%3E%3Cpath d='M2 10 C 20 -4, 44 16, 62 2' stroke='%23F0B429' stroke-width='3' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* --------------------------------------------------------------------------
+   4. 共通ボタン
+   -------------------------------------------------------------------------- */
+
+/* ベースとなるボタンスタイル。
+   色違いは .button--navy のように修飾クラスを重ねて表現する(BEM記法)。 */
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 16px 32px;
+  border-radius: var(--radius-s);
+  font-weight: var(--fw-bold);
+  font-size: 16px;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.button:hover {
+  transform: translateY(-2px); /* ほんの少し浮き上がる、控えめなホバー演出 */
+}
+
+/* メインボタン(黄色地・ネイビー文字):最も押してほしい行動に使う */
+.button--main {
+  background-color: var(--color-main);
+  color: var(--color-navy);
+}
+
+.button--main:hover {
+  background-color: var(--color-main-dark);
+}
+
+/* ネイビーボタン(ネイビー地・白文字):CTAセクションの電話ボタンなどに使う */
+.button--navy {
+  background-color: var(--color-navy);
+  color: #ffffff;
+}
+
+.button--navy:hover {
+  background-color: var(--color-navy-light);
+}
+
+/* アウトラインボタン(枠線のみ):CTAセクションの2番目のボタンなど、
+   主役ではないが押してほしい行動に使う */
+.button--outline {
+  background-color: transparent;
+  border: 2px solid #ffffff;
+  color: #ffffff;
+}
+
+.button--outline:hover {
+  background-color: rgba(255, 255, 255, 0.12);
+}
+
+/* アウトラインボタン(ネイビー版):白い背景の上で使うためのボタン。
+   button--outline(白背景/CTAなどの濃い背景用)と役割を分けている。
+   他のページでも「白背景の上で控えめに誘導したいボタン」として使い回せる。 */
+.button--outline-navy {
+  background-color: transparent;
+  border: 2px solid var(--color-navy);
+  color: var(--color-navy);
+}
+
+.button--outline-navy:hover {
+  background-color: var(--color-navy);
+  color: #ffffff;
+}
+
+/* --------------------------------------------------------------------------
+   5. 共通カード
+   -------------------------------------------------------------------------- */
+
+/* 「影は最小限・少しだけ角丸」というデザインルールに合わせ、
+   影はほぼ使わず、背景色の差(--color-bg-card)と角丸だけで
+   カードであることを表現する。 */
+.card {
+  background-color: var(--color-bg-card);
+  border-radius: var(--radius-m);
+  overflow: hidden; /* カード内の画像の角も、カードの角丸に合わせて丸くする */
+}
+
+/* --------------------------------------------------------------------------
+   6. ヘッダー
+   -------------------------------------------------------------------------- */
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--header-height);
+  z-index: 100;
+  background-color: transparent; /* 初期状態は透明(ファーストビューの写真を活かす) */
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* スクロールすると common.js が body に付与するクラス。
+   これにより「スクロールすると白背景になる」という挙動を実現する。 */
+.header.is-scrolled {
+  background-color: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 1px 0 var(--color-border);
+}
+
+.header__inner {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* ロゴ画像は共通のimg要素として扱い、置く場所(ヘッダー/フッター)ごとに
+   .header__logo / .footer__logo で背景チップの見た目だけを調整する。
+   ロゴが複数色を使ったデザインであっても、白い背景さえ用意すれば
+   ネイビーの背景の上でも正しい配色のまま表示できる。 */
+.site-logo {
+  display: inline-flex;
+  align-items: center;
+  background-color: #ffffff;
+  border-radius: var(--radius-s);
+  padding: 8px 14px;
+}
+
+.site-logo__image {
+  height: auto;
+  max-height: 42px;
+  width: auto;
+  max-width: 220px; /* 横長のロゴでも余裕を持って大きく表示できるようにする */
+}
+
+/* ファーストビュー上(スクロール前)は写真の上に文字が乗るため、白文字にする */
+.header__nav-link,
+.header__menu-icon span {
+  color: #ffffff;
+  transition: color 0.3s ease;
+}
+
+.header.is-scrolled .header__nav-link {
+  color: var(--color-navy);
+}
+
+.header.is-scrolled .header__menu-icon span {
+  background-color: var(--color-navy);
+}
+
+.header__right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* PC用のナビゲーション。スマホでは非表示にし、ハンバーガーメニューに切り替える。 */
+.header__nav {
+  display: none;
+}
+
+.header__nav-list {
+  display: flex;
+  gap: 22px;
+}
+
+.header__nav-link {
+  font-weight: var(--fw-medium);
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+/* ヘッダーの電話ボタン(スマホ・PC共通で常に表示) */
+.header__tel-button {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border-radius: 999px;
+  background-color: var(--color-main);
+  color: var(--color-navy) !important; /* ボタン内だけは常にネイビー文字で固定 */
+  font-weight: var(--fw-bold);
+  font-size: 13px;
+}
+
+/* ハンバーガーメニューアイコン(スマホのみ表示) */
+.header__menu-icon {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 32px;
+  height: 32px;
+}
+
+.header__menu-icon span {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: #ffffff;
+  transition: background-color 0.3s ease;
+}
+
+/* 1024px前後の画面幅では、ロゴを大きくしたぶんメニューが1行に収まりきらず
+   折り返してしまうため、PC用ナビゲーションへの切り替えを1220pxに引き上げている。
+   (それより狭い画面では、無理に文字を縮小するのではなくハンバーガーメニューを使う) */
+@media (min-width: 1220px) {
+  .header__nav {
+    display: block;
+  }
+
+  .header__menu-icon {
+    display: none;
+  }
+}
+
+/* スマホ用のドロップダウンメニュー(common.jsで開閉を制御) */
+.header__mobile-nav {
+  position: fixed;
+  top: var(--header-height);
+  left: 0;
+  width: 100%;
+  background-color: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  transform: translateY(-8px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.header__mobile-nav.is-open {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.header__mobile-nav-list {
+  padding: 16px var(--container-padding) 24px;
+}
+
+.header__mobile-nav-link {
+  display: block;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--color-border);
+  font-weight: var(--fw-medium);
+  color: var(--color-navy);
+}
+
+@media (min-width: 1220px) {
+  .header__mobile-nav {
+    display: none; /* PCでは常に非表示(ヘッダー内のナビを使うため) */
+  }
+}
+
+/* --------------------------------------------------------------------------
+   7. フッター
+   -------------------------------------------------------------------------- */
+
+.footer {
+  background-color: var(--color-navy);
+  color: #ffffff;
+  padding: 64px 0 24px;
+}
+
+.footer__logo {
+  margin-bottom: 24px;
+}
+
+.footer__grid {
+  display: grid;
+  gap: 32px;
+  margin-bottom: 48px;
+}
+
+@media (min-width: 768px) {
+  .footer__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.footer__heading {
+  font-weight: var(--fw-bold);
+  font-size: 14px;
+  color: var(--color-main);
+  margin-bottom: 12px;
+}
+
+.footer__text {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* Googleマップへのリンク。他のテキストと見分けがつくよう、下線とメインカラーを付ける */
+.footer__map-link {
+  display: inline-block;
+  margin-top: 4px;
+  color: var(--color-main);
+  text-decoration: underline;
+  font-size: 13px;
+}
+
+.footer__nav-link {
+  display: block;
+  padding: 6px 0;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* プライバシーポリシー・運営規程(PDF)・重要事項説明書(PDF)へのリンク。
+   メインのメニューとは分け、コピーライトの上に控えめな一覧として表示する。 */
+.footer__legal-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px 20px;
+  margin-bottom: 20px;
+}
+
+.footer__legal-links a {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.6);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.footer__copyright {
+  padding-top: 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.6);
+  text-align: center;
+}
+
+/* --------------------------------------------------------------------------
+   8. 共通ヒーロー(全ページのファーストビューの土台)
+   -------------------------------------------------------------------------- */
+/* トップページ・リハビリ紹介ページなど、複数ページで
+   「写真の上にコピーとボタンを乗せる」構造を使い回すための共通スタイル。
+
+   トップページだけの機能(写真スライダー・スクロール案内)は
+   index.css 側に書き、ここには置かない。 */
+
+.hero {
+  position: relative;
+  height: 60vh;
+  min-height: 420px;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end; /* コピーは画面下寄りに配置 */
+  background-size: cover;
+  background-position: center;
+}
+
+/* トップページのみ、画面いっぱいの高さで見せるための修飾クラス。
+   使い方: <section class="hero hero--fullscreen"> */
+.hero--fullscreen {
+  height: 100svh; /* スマホのアドレスバー分も考慮したsvh単位 */
+  min-height: 560px;
+}
+
+/* スライド画像を重ねて配置し、JS側でbackground-imageとopacityを切り替える。
+   トップページ以外(リハビリ紹介ページなど)でも1枚だけ表示する形で使うため、
+   ここ(共通)に置く。複数枚を自動で切り替えるスライダー機能自体は
+   index.js(トップページ専用)にある。 */
+.hero__slide {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 1.2s ease;
+}
+
+.hero__slide.is-active {
+  opacity: 1;
+}
+
+/* 写真の上に文字を乗せるため、下側だけ暗くするグラデーション */
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(27, 42, 74, 0.75) 0%,
+    rgba(27, 42, 74, 0.25) 45%,
+    rgba(27, 42, 74, 0) 70%
+  );
+  pointer-events: none;
+}
+
+.hero__content {
+  position: relative; /* ::after のグラデーションより手前に表示するため */
+  z-index: 1;
+  padding-bottom: 64px;
+  width: 100%;
+}
+
+.hero__copy {
+  color: #ffffff;
+  font-size: 26px;
+  font-weight: var(--fw-black);
+  line-height: 1.6;
+  margin-bottom: 32px;
+  /* 長めのキャッチコピーが画面幅いっぱいに広がりすぎないよう最大幅を制限 */
+  max-width: 480px;
+}
+
+@media (min-width: 768px) {
+  .hero__copy {
+    font-size: 40px;
+  }
+}
+
+/* キャッチコピー・ページタイトルを補足する、1〜2行程度の短い一言。
+   見出しより明確に小さく・軽くして、主役は見出しだと分かるようにする。 */
+.hero__lead {
+  color: rgba(255, 255, 255, 0.92);
+  font-size: 14px;
+  font-weight: var(--fw-regular);
+  line-height: 1.7;
+  max-width: 420px;
+  margin-bottom: 28px;
+}
+
+@media (min-width: 768px) {
+  .hero__lead {
+    font-size: 16px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   9. 共通CTA(ネイビー背景の行動喚起セクション)
+   -------------------------------------------------------------------------- */
+/* トップページ・リハビリ紹介ページなど、複数ページの末尾で使う
+   「無料見学受付中」のCTAセクション。ページが増えても同じHTML構造を
+   コピーするだけで、見た目を統一できる。 */
+
+.cta {
+  background-color: var(--color-navy);
+  color: #ffffff;
+  text-align: center;
+}
+
+/* CTAはサイト全体で最も重要なエリアのため、
+   「見出し(無料見学受付中)→ 安心メッセージ → 電話番号 → ボタン」の順で
+   視線が流れるよう、文字サイズにはっきりとした差をつけている。 */
+.cta__title {
+  color: #ffffff; /* 見出しは基本ネイビーだが、CTAは背景自体がネイビーなので白文字にする */
+  font-size: 32px;
+  margin-bottom: 16px;
+}
+
+@media (min-width: 768px) {
+  .cta__title {
+    font-size: 48px;
+  }
+}
+
+/* 電話をかけることへのハードルを下げるための、安心感のある一言。
+   見出しほど目立たせず、電話番号よりは自然に読める大きさにしている。 */
+.cta__message {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 15px;
+  margin-bottom: 24px;
+}
+
+.cta__tel-number {
+  display: block;
+  font-size: 26px;
+  font-weight: var(--fw-bold); /* 見出しの黒(900)より軽くし、主役は見出しであることを明確にする */
+  color: var(--color-main);
+  margin-bottom: 32px;
+  letter-spacing: 0.02em;
+}
+
+@media (min-width: 768px) {
+  .cta__tel-number {
+    font-size: 32px;
+  }
+}
+
+.cta__buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+}
+
+@media (min-width: 480px) {
+  .cta__buttons {
+    flex-direction: row;
+    justify-content: center;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   10. 共通タグリスト
+   -------------------------------------------------------------------------- */
+/* 「マシントレーニング」「理学療法士」のような単語を、
+   丸みのあるタグとして横並びに見せる共通パーツ。
+   リハビリ紹介ページの複数箇所(3本柱の詳細・専門職紹介など)で使い回す。 */
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tag-list li {
+  background-color: var(--color-bg-card);
+  color: var(--color-navy);
+  font-size: 13px;
+  font-weight: var(--fw-medium);
+  padding: 6px 14px;
+  border-radius: 999px;
+}
+
+/* --------------------------------------------------------------------------
+   11. 共通の情報カード(営業時間・送迎対応など)
+   -------------------------------------------------------------------------- */
+/* 「ラベル+値」を並べるだけのシンプルなカード。
+   about.html(営業時間・送迎など)やflow.html(営業時間)など、
+   複数のページで使い回す。 */
+
+.business-hours {
+  display: grid;
+  gap: 20px;
+}
+
+@media (min-width: 768px) {
+  .business-hours {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.business-hours-card {
+  padding: 32px 24px;
+  text-align: center;
+}
+
+.business-hours-card__label {
+  font-size: 13px;
+  font-weight: var(--fw-bold);
+  color: var(--color-text-sub);
+  letter-spacing: 0.05em;
+  margin-bottom: 8px;
+}
+
+.business-hours-card__value {
+  font-size: 20px;
+  font-weight: var(--fw-bold);
+  color: var(--color-navy);
+}
+
+/* 小さめの案内カード(「介護保険をまだの方へ」「ご見学について」など)。
+   注意喚起ではなく、やさしい雰囲気で一言添えるためのパーツ。
+   guide.html・contact.htmlなど、複数のページで使い回す。 */
+.notice-card {
+  max-width: 560px;
+  margin: 0 auto;
+  text-align: center;
+  background-color: var(--color-bg-card);
+  border-radius: var(--radius-m);
+  padding: 24px 28px;
+  font-size: 14px;
+  color: var(--color-text-sub);
+  line-height: 1.8;
+}

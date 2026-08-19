@@ -1,0 +1,30 @@
+{
+  "_comment": "サイト全体で使う共通情報。将来スプレッドシートで管理する場合も、この項目名(キー)をそのまま列名にすれば移行しやすい構成にしています。",
+  "_currentStoreComment": "currentStoreは「このホームページ自体がどの店舗のものか」を表す。各店舗ごとに独立したホームページを持つ設計のため、店舗一覧を描画するとき、name が currentStore と一致する店舗にはリンクボタンを表示しない(=自分自身にはリンクしない)。店舗が増えても、この仕組みだけで対応できる。",
+
+  "tel": "0476-36-7580",
+  "businessHours": "8:30〜17:30(日曜定休)",
+  "openingHours": "8:30〜17:30",
+  "closedDays": "日曜日",
+  "address": "千葉県印西市草深53-2",
+  "googleMapUrl": "https://maps.app.goo.gl/1gdxg4xJ99LA8Rwa8",
+
+  "catchCopy": "デイサービスで、ここまで本格的なリハビリが受けられる。",
+  "catchCopySub": "専門職による個別リハビリと、本格的な運動療法。",
+
+  "ctaButtonPrimary": "無料見学予約",
+  "ctaSectionTitle": "無料見学受付中",
+  "ctaMessage": "お気軽に見学・ご相談ください",
+
+  "currentStore": "高花店",
+  "stores": [
+    {
+      "name": "高花店",
+      "url": "https://example.com/inzai/"
+    },
+    {
+      "name": "大森店",
+      "url": "https://example.com/store-b/"
+    }
+  ]
+}

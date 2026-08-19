@@ -1,0 +1,240 @@
+/* ==========================================================================
+   index.css
+
+   【このファイルの役割】
+   トップページ(index.html)だけで使うスタイルをまとめる。
+   ヘッダー・フッターなど他ページでも使う部分はcommon.cssにあるため、
+   ここには書かない。
+
+   セクション単位でコメントを分けているので、
+   「③お知らせの見た目を直したい」ときは「3. お知らせセクション」だけを見ればよい。
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. ファーストビュー(hero)セクション
+   -------------------------------------------------------------------------- */
+/* .hero / .hero__content / .hero__copy / .hero__lead / .hero__slide など、
+   ヒーローの土台となるスタイルは他ページ(リハビリ紹介ページなど)でも
+   使い回すため common.css に移動した。
+   ここには「トップページだけの機能」であるスクロール案内だけを書く。 */
+
+/* スマホ表示のみ、トップページのHero(.hero--fullscreen)の見え方を調整。
+   PCと同じ高さ(100svh)のまま横長写真をcoverすると、
+   縦長のスマホ画面では写真が大きくトリミングされ過ぎてしまうため、
+   スマホ表示に限って高さと表示位置だけを調整する。
+   .hero--fullscreen はトップページのみで使うクラスのため、
+   このルールが他ページのHeroに影響することはない。 */
+@media (max-width: 767px) {
+  .hero--fullscreen {
+    height: 70vh;
+    min-height: 480px;
+  }
+
+  .hero--fullscreen .hero__slide {
+    background-position: center top;
+  }
+
+  /* hero-1.jpg(店舗外観)だけ、スマホの縦長画面だと横方向のトリミングが強くなり、
+     看板「リハビリデイ快福庵」の右側が見切れてしまうため、
+     この写真だけ表示位置を右寄りに調整し、看板全体が収まるようにする。
+     他のスライド(hero-2 / hero-3)は上の一括指定(center top)のままでよいため、
+     このスライドだけを個別に上書きする。 */
+  .hero--fullscreen .hero__slide--shop {
+    background-position: 80% top;
+  }
+}
+
+/* スクロールを促す案内。派手なアニメーションはつけず、
+   ごくゆるやかな明滅だけで「ここは動く場所ですよ」と伝える程度にとどめている。 */
+.hero__scroll-hint {
+  position: absolute;
+  left: 50%;
+  bottom: 28px;
+  transform: translateX(-50%);
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: #ffffff;
+  animation: heroScrollHintFade 2.4s ease-in-out infinite;
+}
+
+.hero__scroll-hint-text {
+  font-size: 11px;
+  font-weight: var(--fw-medium);
+  letter-spacing: 0.15em;
+}
+
+.hero__scroll-hint-line {
+  display: block;
+  width: 1px;
+  height: 28px;
+  background-color: #ffffff;
+}
+
+@keyframes heroScrollHintFade {
+  0%, 100% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   2. リハビリ紹介セクション
+   -------------------------------------------------------------------------- */
+
+.rehab-grid {
+  display: grid;
+  gap: 32px;
+}
+
+@media (min-width: 768px) {
+  .rehab-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* 写真を主役にするため、カードの上半分を写真、下半分を短いテキストにする */
+.rehab-card__image {
+  aspect-ratio: 4 / 3; /* 画像の縦横比を固定し、レイアウト崩れを防ぐ */
+  background-color: var(--color-border); /* 画像未設定時の仮の背景色 */
+  background-size: cover;
+  background-position: center;
+}
+
+.rehab-card__body {
+  padding: 24px;
+}
+
+.rehab-card__title {
+  font-size: 18px;
+  font-weight: var(--fw-bold);
+  color: var(--color-navy);
+  margin-bottom: 8px;
+}
+
+.rehab-card__text {
+  font-size: 14px;
+  color: var(--color-text);
+}
+
+.rehab-more {
+  text-align: center;
+  margin-top: 48px;
+}
+
+/* スマホ表示のみ、見出し「専門職による、本気のリハビリ」が
+   最後の1文字だけ2行目に落ちてしまうのを防ぐための調整。
+   .section-heading__title は他ページの見出しでも使う共通クラスのため、
+   このセクション(.rehab)の見出しに限定して指定し、他の見出しには影響させない。 */
+@media (max-width: 767px) {
+  .rehab .section-heading__title {
+    font-size: 22px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   3. お知らせセクション
+   -------------------------------------------------------------------------- */
+
+/* お知らせは写真を使わず文字中心のため、余白を広めにとって
+   「文字は少なめ・余白は広く」のルールを保つ */
+.news-list {
+  border-top: 1px solid var(--color-border);
+}
+
+.news-item {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 8px 24px;
+  padding: 24px 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.news-item__date {
+  font-size: 13px;
+  color: var(--color-text-sub);
+  font-feature-settings: "tnum"; /* 数字の幅を揃えて読みやすくする */
+}
+
+.news-item__category {
+  font-size: 12px;
+  font-weight: var(--fw-bold);
+  color: var(--color-navy);
+  background-color: var(--color-bg-card);
+  padding: 4px 10px;
+  border-radius: 999px;
+}
+
+.news-item__title {
+  font-size: 15px;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .news-item__title {
+    width: auto;
+    flex: 1;
+  }
+}
+
+.news-more {
+  text-align: center;
+  margin-top: 40px;
+}
+
+/* --------------------------------------------------------------------------
+   4. 店舗紹介セクション
+   -------------------------------------------------------------------------- */
+
+.stores-grid {
+  display: grid;
+  gap: 32px;
+}
+
+@media (min-width: 768px) {
+  .stores-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.store-card__image {
+  aspect-ratio: 16 / 10;
+  background-color: var(--color-border);
+  background-size: cover;
+  background-position: center;
+}
+
+.store-card__body {
+  padding: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.store-card__name {
+  font-size: 18px;
+  font-weight: var(--fw-bold);
+  color: var(--color-navy);
+}
+
+/* スマホ表示のみ、店舗紹介の「高花店」と「高花店のホームページはこちら」ボタンが
+   横並びの幅に収まりきらず2行になってしまうのを防ぐための調整。
+   .store-card__name / .store-card__body 内の .button は店舗紹介カード専用のため、
+   ここで小さくしても他ページ・他のボタンには影響しない。
+   横並びのレイアウト(space-between)自体は変更していない。 */
+@media (max-width: 767px) {
+  .store-card__name {
+    font-size: 15px;
+  }
+
+  .store-card__body .button {
+    padding: 10px 14px;
+    font-size: 13px;
+  }
+}

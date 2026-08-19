@@ -1,0 +1,74 @@
+/* ==========================================================================
+   reset.css
+
+   【このファイルの役割】
+   ブラウザが最初から持っている独自のスタイル(見出しの余白、リストの点など)を
+   すべてリセットして、どのブラウザでも同じ見た目からスタートできるようにする。
+
+   ※ デザインに関するスタイル(色・フォント・レイアウト)は書かない。
+     デザインは common.css / index.css に書く。
+   ========================================================================== */
+
+/* すべての要素で、paddingとborderをwidth・heightの計算に含める。
+   これにより「幅100pxの箱にpaddingを付けたら101pxになった」という事故を防ぐ。 */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* ブラウザ標準のmargin・paddingを削除し、自分で意図した余白だけを使う状態にする */
+html,
+body,
+h1, h2, h3, h4, h5, h6,
+p,
+ul, ol,
+figure {
+  margin: 0;
+  padding: 0;
+}
+
+/* リストの黒丸・数字を削除(必要な場所だけ自分でつける) */
+ul,
+ol {
+  list-style: none;
+}
+
+/* 見出しタグの文字太さは、common.cssで明示的に指定するため、
+   ここでは一旦normalに揃えておく */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: normal;
+}
+
+/* リンクの下線・色をリセットし、common.cssで意図した見た目だけを適用する */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* imageは基本的に親要素の幅いっぱいに広がるようにしておく(はみ出し防止) */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ボタン・inputの見た目をブラウザ標準からリセットし、CSSで作った見た目だけにする */
+button,
+input,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+/* テキストのサイズがOS設定で不用意に拡大縮小されないようにする */
+html {
+  -webkit-text-size-adjust: 100%;
+}

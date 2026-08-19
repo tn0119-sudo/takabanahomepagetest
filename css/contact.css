@@ -1,0 +1,135 @@
+/* ==========================================================================
+   contact.css
+
+   【このファイルの役割】
+   お問い合わせ・アクセスページ(contact.html)だけで使うスタイルをまとめる。
+   ヘッダー・フッター・ヒーロー・CTA・ボタン・カード・案内カードなど、
+   他ページと共通の部分は common.css にあるため、ここには書かない。
+
+   このページの目的は「電話しやすい」「場所が分かりやすい」
+   「安心して来所できる」の3点なので、装飾よりも余白・文字サイズによる
+   分かりやすさを優先している。
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. お問い合わせ(ページ内で最も目立つセクション)
+   -------------------------------------------------------------------------- */
+
+.call-section {
+  text-align: center;
+}
+
+.call-section__number {
+  display: block;
+  font-size: 40px;
+  font-weight: var(--fw-black);
+  color: var(--color-navy);
+  letter-spacing: 0.02em;
+  margin-bottom: 16px;
+}
+
+@media (min-width: 768px) {
+  .call-section__number {
+    font-size: 56px;
+  }
+}
+
+.call-section__message {
+  font-size: 16px;
+  color: var(--color-text);
+  margin-bottom: 32px;
+}
+
+/* 通常のbutton--mainより一回り大きくし、「一番押してほしいボタン」だと分かるようにする */
+.call-section__button {
+  padding: 22px 48px;
+  font-size: 18px;
+}
+
+/* --------------------------------------------------------------------------
+   2. アクセス
+   -------------------------------------------------------------------------- */
+/* 施設名・住所・電話番号・営業時間・駐車場・送迎対応を、
+   同じ形のアイコン付きカードで並べ、一目で分かるようにしている。 */
+
+.access-grid {
+  display: grid;
+  gap: 20px;
+}
+
+@media (min-width: 600px) {
+  .access-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .access-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.access-card {
+  background-color: var(--color-bg-card);
+  border-radius: var(--radius-m);
+  padding: 28px 20px;
+  text-align: center;
+}
+
+.access-card__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  border: 2px solid var(--color-main);
+  color: var(--color-navy);
+  margin: 0 auto 14px;
+}
+
+.access-card__label {
+  font-size: 12px;
+  font-weight: var(--fw-bold);
+  color: var(--color-text-sub);
+  letter-spacing: 0.05em;
+  margin-bottom: 6px;
+}
+
+.access-card__value {
+  font-size: 15px;
+  font-weight: var(--fw-bold);
+  color: var(--color-navy);
+  line-height: 1.6;
+}
+
+/* --------------------------------------------------------------------------
+   3. Googleマップ
+   -------------------------------------------------------------------------- */
+/* 「横幅いっぱいではなく、周囲に余白を設ける」という指定のため、
+   containerの内側でさらに最大幅を絞っている。 */
+
+.map-wrap {
+  max-width: 880px;
+  margin: 0 auto;
+}
+
+.map-frame-wrap {
+  aspect-ratio: 16 / 9;
+  border-radius: var(--radius-m);
+  overflow: hidden;
+  background-color: var(--color-border); /* マップ読み込み前の仮の背景色 */
+}
+
+.map-frame-wrap iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.map-link {
+  text-align: center;
+  margin-top: 24px;
+}

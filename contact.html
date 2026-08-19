@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>お問い合わせ・アクセス｜印西市のリハビリ特化型デイサービス｜快福庵</title>
+  <meta name="description" content="「リハビリデイ快福庵」へのお問い合わせ・アクセスをご案内します。印西市内の送迎に対応し、駐車場もご用意しています。見学やご利用についてのお問い合わせはお電話でお気軽にご連絡ください。">
+
+  <!-- 見出し・本文ともに Noto Sans JP のみを使用し、太さの違いでメリハリをつける -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+  <!-- CSSの読み込み順に意味がある。
+       reset → common(全ページ共通) → contact(このページ専用) の順 -->
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/contact.css">
+</head>
+<body>
+
+  <!-- ==========================================================================
+       アイコンのSVGスプライト(このページ専用)
+       ページ内では表示せず(display:none)、<use>で必要な場所に呼び出して使う。
+       ========================================================================== -->
+  <svg style="display: none;" aria-hidden="true">
+    <defs>
+      <!-- 施設名 -->
+      <symbol id="contact-icon-building" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="10" y="8" width="28" height="34"></rect>
+        <rect x="16" y="15" width="5" height="5"></rect>
+        <rect x="27" y="15" width="5" height="5"></rect>
+        <rect x="16" y="25" width="5" height="5"></rect>
+        <rect x="27" y="25" width="5" height="5"></rect>
+        <rect x="20" y="35" width="8" height="7"></rect>
+      </symbol>
+
+      <!-- 住所 -->
+      <symbol id="contact-icon-pin" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M24 6 C16 6, 10 12, 10 20 C10 30, 24 42, 24 42 C24 42, 38 30, 38 20 C38 12, 32 6, 24 6 Z"></path>
+        <circle cx="24" cy="20" r="5"></circle>
+      </symbol>
+
+      <!-- 電話番号 -->
+      <symbol id="contact-icon-phone" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M16 9 C15 9, 14 10, 14 11 C14 24, 24 34, 37 34 C38 34, 39 33, 39 32 L39 28 C39 27, 38 26, 37 26 L31 25 C30 25, 29 25, 29 26 L27 28 C22 26, 18 22, 16 17 L18 15 C19 15, 19 14, 19 13 L18 11 C18 10, 17 9, 16 9 Z"></path>
+      </symbol>
+
+      <!-- 営業時間 -->
+      <symbol id="contact-icon-clock" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="24" cy="24" r="16"></circle>
+        <path d="M24 15 L24 24 L31 28"></path>
+      </symbol>
+
+      <!-- 駐車場 -->
+      <symbol id="contact-icon-parking" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 24 L16 14 L32 14 L36 24"></path>
+        <rect x="8" y="24" width="32" height="10" rx="3"></rect>
+        <circle cx="15" cy="34" r="3"></circle>
+        <circle cx="33" cy="34" r="3"></circle>
+      </symbol>
+
+      <!-- 送迎対応 -->
+      <symbol id="contact-icon-shuttle" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="6" y="20" width="28" height="12" rx="2"></rect>
+        <rect x="34" y="22" width="8" height="10" rx="1"></rect>
+        <line x1="20" y1="20" x2="20" y2="32"></line>
+        <circle cx="14" cy="34" r="3"></circle>
+        <circle cx="34" cy="34" r="3"></circle>
+      </symbol>
+    </defs>
+  </svg>
+
+  <!-- ==========================================================================
+       ヘッダー(他ページと共通構成)
+       ========================================================================== -->
+  <header class="header js-header">
+    <div class="container header__inner">
+
+      <a href="index.html" class="header__logo site-logo">
+        <img class="site-logo__image" src="images/common/logo.png" alt="リハビリデイ快福庵">
+      </a>
+
+      <div class="header__right">
+
+        <!-- PC用ナビゲーション(スマホでは非表示。CSS側で切り替え) -->
+        <nav class="header__nav">
+          <ul class="header__nav-list">
+            <li><a class="header__nav-link" href="index.html">ホーム</a></li>
+            <li><a class="header__nav-link" href="about.html">快福庵について</a></li>
+            <li><a class="header__nav-link" href="rehab.html">リハビリ紹介</a></li>
+            <li><a class="header__nav-link" href="flow.html">1日の流れ</a></li>
+            <li><a class="header__nav-link" href="guide.html">ご利用について</a></li>
+            <li><a class="header__nav-link" href="contact.html">お問い合わせ・アクセス</a></li>
+          </ul>
+        </nav>
+
+        <!-- 電話ボタン(PC・スマホ共通で常に表示) -->
+        <a class="header__tel-button" href="tel:" data-site-tel-link>
+          📞 <span data-site="tel"></span>
+        </a>
+
+        <!-- ハンバーガーメニュー(スマホのみ表示) -->
+        <button class="header__menu-icon js-menu-button" aria-label="メニューを開く" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- スマホ用ドロップダウンメニュー -->
+    <nav class="header__mobile-nav js-mobile-nav">
+      <ul class="header__mobile-nav-list">
+        <li><a class="header__mobile-nav-link" href="index.html">ホーム</a></li>
+        <li><a class="header__mobile-nav-link" href="about.html">快福庵について</a></li>
+        <li><a class="header__mobile-nav-link" href="rehab.html">リハビリ紹介</a></li>
+        <li><a class="header__mobile-nav-link" href="flow.html">1日の流れ</a></li>
+        <li><a class="header__mobile-nav-link" href="guide.html">ご利用について</a></li>
+        <li><a class="header__mobile-nav-link" href="contact.html">お問い合わせ・アクセス</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ==========================================================================
+         ①ファーストビュー
+         ========================================================================== -->
+    <section class="hero">
+      <div class="hero__slide is-active js-contact-hero-image"></div>
+
+      <div class="container hero__content">
+        <!-- このページの内容を表すh1。SEO上、1ページに1つだけ設置する -->
+        <h1 class="hero__copy" data-contact="hero.title"></h1>
+        <p class="hero__lead" data-contact="hero.copy"></p>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         ②お問い合わせ(ページ内で最も目立つセクション)
+         フォームは設置せず、電話のみに絞っている。
+         ========================================================================== -->
+    <section class="section call-section">
+      <div class="container">
+        <span class="call-section__number" data-site="tel"></span>
+        <p class="call-section__message" data-contact="call.message"></p>
+        <a class="button button--main call-section__button" href="tel:" data-site-tel-link>電話する</a>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         ③アクセス
+         ========================================================================== -->
+    <section class="section access-section">
+      <div class="container">
+        <div class="section-heading">
+          <h2 class="section-heading__title">アクセス</h2>
+          <span class="section-heading__line"></span>
+        </div>
+
+        <div class="access-grid">
+
+          <div class="access-card">
+            <span class="access-card__icon"><svg width="28" height="28"><use href="#contact-icon-building"></use></svg></span>
+            <p class="access-card__label">施設名</p>
+            <p class="access-card__value" data-contact="access.facilityName"></p>
+          </div>
+
+          <div class="access-card">
+            <span class="access-card__icon"><svg width="28" height="28"><use href="#contact-icon-pin"></use></svg></span>
+            <p class="access-card__label">住所</p>
+            <p class="access-card__value" data-site="address"></p>
+          </div>
+
+          <div class="access-card">
+            <span class="access-card__icon"><svg width="28" height="28"><use href="#contact-icon-phone"></use></svg></span>
+            <p class="access-card__label">電話番号</p>
+            <p class="access-card__value" data-site="tel"></p>
+          </div>
+
+          <div class="access-card">
+            <span class="access-card__icon"><svg width="28" height="28"><use href="#contact-icon-clock"></use></svg></span>
+            <p class="access-card__label">営業時間</p>
+            <p class="access-card__value" data-site="businessHours"></p>
+          </div>
+
+          <div class="access-card">
+            <span class="access-card__icon"><svg width="28" height="28"><use href="#contact-icon-parking"></use></svg></span>
+            <p class="access-card__label">駐車場</p>
+            <p class="access-card__value" data-contact="access.parking"></p>
+          </div>
+
+          <div class="access-card">
+            <span class="access-card__icon"><svg width="28" height="28"><use href="#contact-icon-shuttle"></use></svg></span>
+            <p class="access-card__label">送迎</p>
+            <p class="access-card__value" data-contact="access.pickup"></p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         ④Googleマップ
+         js-map-frame : contact.js が site.json の address を使って
+         iframeのsrcを組み立てる対象(共通のaddress情報を再利用するため)。
+         ========================================================================== -->
+    <section class="section map-section">
+      <div class="container">
+        <div class="section-heading">
+          <h2 class="section-heading__title">地図</h2>
+          <span class="section-heading__line"></span>
+        </div>
+
+        <div class="map-wrap">
+          <div class="map-frame-wrap">
+            <iframe class="js-map-frame" title="施設の地図" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+
+          <div class="map-link">
+            <a class="button button--outline-navy" data-site-href="googleMapUrl" target="_blank" rel="noopener">
+              Googleマップで開く
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         ⑤ご見学について(案内カード)
+         ========================================================================== -->
+    <section class="section tour-note-section">
+      <div class="container">
+        <p class="notice-card" data-contact="tourNote.text"></p>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         ⑥CTA(トップページと共通デザイン。common.cssのスタイルをそのまま使う)
+         ========================================================================== -->
+    <section class="section cta">
+      <div class="container">
+        <h2 class="cta__title" data-site="ctaSectionTitle"></h2>
+        <p class="cta__message" data-site="ctaMessage"></p>
+        <span class="cta__tel-number" data-site="tel"></span>
+
+        <div class="cta__buttons">
+          <a class="button button--main" href="tel:" data-site-tel-link>電話する</a>
+          <a class="button button--outline" href="contact.html">営業時間・アクセスを見る</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==========================================================================
+       フッター(他ページと共通構成)
+       ========================================================================== -->
+  <footer class="footer">
+    <div class="container">
+
+      <div class="footer__logo site-logo">
+        <img class="site-logo__image" src="images/common/logo.png" alt="リハビリデイ快福庵">
+      </div>
+
+      <div class="footer__grid">
+
+        <div>
+          <p class="footer__heading">営業時間・住所</p>
+          <p class="footer__text" data-site="businessHours"></p>
+          <p class="footer__text" data-site="address"></p>
+          <a class="footer__text footer__map-link" data-site-href="googleMapUrl" target="_blank" rel="noopener">
+            Googleマップで見る ▶
+          </a>
+          <p class="footer__text">
+            電話:<span data-site="tel"></span>
+          </p>
+        </div>
+
+        <div>
+          <p class="footer__heading">メニュー</p>
+          <a class="footer__nav-link" href="index.html">ホーム</a>
+          <a class="footer__nav-link" href="about.html">快福庵について</a>
+          <a class="footer__nav-link" href="rehab.html">リハビリ紹介</a>
+          <a class="footer__nav-link" href="flow.html">1日の流れ</a>
+          <a class="footer__nav-link" href="guide.html">ご利用について</a>
+          <a class="footer__nav-link" href="contact.html">お問い合わせ・アクセス</a>
+          <a class="footer__nav-link" href="https://example.com/recruit/" target="_blank" rel="noopener">採用情報</a>
+        </div>
+
+      </div>
+
+      <!-- プライバシーポリシー・各種書類(PDF)へのリンク。
+           ホームページ公開時に、実際のページ・PDFファイルへのリンクへ差し替える想定。 -->
+      <div class="footer__legal-links">
+        <a href="privacy.html" target="_blank" rel="noopener">プライバシーポリシー</a>
+        <a href="documents/unei-kitei.pdf" target="_blank" rel="noopener">運営規程(PDF)</a>
+        <a href="documents/juuyoujikou.pdf" target="_blank" rel="noopener">重要事項説明書(PDF)</a>
+      </div>
+
+      <p class="footer__copyright">&copy; 2026 リハビリデイ快福庵</p>
+
+    </div>
+  </footer>
+
+  <!-- common.js(全ページ共通) → contact.js(このページ専用)の順で読み込む -->
+  <script src="js/common.js"></script>
+  <script src="js/contact.js"></script>
+
+</body>
+</html>

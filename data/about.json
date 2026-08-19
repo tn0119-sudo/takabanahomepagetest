@@ -1,0 +1,38 @@
+{
+  "_comment": "施設についてページだけで使うコンテンツ。このページは『専門性』ではなく『安心感』を伝える役割のため、リハビリ内容の詳しい説明はrehab.jsonの側に持たせ、ここには置かない。",
+
+  "hero": {
+    "title": "快福庵について",
+    "copy": "1回3時間の短時間利用、無理なく通える場所です。",
+    "image": "images/about/hero.jpg"
+  },
+
+  "concept": {
+    "heading": "無理なく、楽しく、安心して",
+    "paragraphs": [
+      "リハビリデイ快福庵は、1回3時間でお風呂・お食事なしの短時間デイサービスです。　　長い時間の利用が難しい方でも、生活のリズムを崩さず、無理なく通っていただけます。",
+      "スタッフとの何気ない会話や、他の利用者様との交流も、通う楽しみのひとつ。<br>笑顔で過ごせる時間を大切にしています。",
+      "リハビリスタッフや看護資格保有の専門職が身体の状態を見守っているので、初めての方でも安心してお過ごしいただけます。リハビリの詳しい内容は「リハビリ紹介」ページでご紹介しています。"
+    ],
+    "photo": "images/about/concept.jpg"
+  },
+
+  "gallery": {
+    "caption": "笑顔があふれる、あたたかい時間です。",
+    "mainImage": "images/about/gallery-main.jpg",
+    "mainVideo": "images/about/gallery-main.mp4",
+    "subImages": [
+      "images/about/gallery-1.jpg",
+      "images/about/gallery-2.jpg",
+      "images/about/gallery-3.jpg"
+    ]
+  },
+
+  "businessHoursCards": [
+    { "label": "営業日", "value": "月曜日 〜 土曜日" },
+    { "label": "定休日", "value": "日曜日" },
+    { "label": "営業時間", "value": "8:30 〜 17:30" },
+    { "label": "送迎", "value": "印西市内送迎対応" },
+    { "label": "見学・体験", "value": "随時受付中" }
+  ]
+}

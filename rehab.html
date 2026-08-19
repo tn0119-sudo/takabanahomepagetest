@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>リハビリ紹介｜印西市のリハビリ特化型デイサービス｜快福庵</title>
+  <meta name="description" content="印西市のリハビリ特化型デイサービス「リハビリデイ快福庵」のリハビリをご紹介します。マシントレーニング、レッドコード、個別リハビリ・マッサージを組み合わせ、一人ひとりの身体の状態に合わせてサポートします。">
+
+  <!-- 見出し・本文ともに Noto Sans JP のみを使用し、太さの違いでメリハリをつける -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+  <!-- CSSの読み込み順に意味がある。
+       reset → common(全ページ共通) → rehab(このページ専用) の順 -->
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/rehab.css">
+</head>
+<body>
+
+  <!-- ==========================================================================
+       ヘッダー(index.htmlと共通構成。今後ページが増えても同じものをコピーして使う)
+       ========================================================================== -->
+  <header class="header js-header">
+    <div class="container header__inner">
+
+      <a href="index.html" class="header__logo site-logo">
+        <img class="site-logo__image" src="images/common/logo.png" alt="リハビリデイ快福庵">
+      </a>
+
+      <div class="header__right">
+
+        <!-- PC用ナビゲーション(スマホでは非表示。CSS側で切り替え) -->
+        <nav class="header__nav">
+          <ul class="header__nav-list">
+            <li><a class="header__nav-link" href="index.html">ホーム</a></li>
+            <li><a class="header__nav-link" href="about.html">快福庵について</a></li>
+            <li><a class="header__nav-link" href="rehab.html">リハビリ紹介</a></li>
+            <li><a class="header__nav-link" href="flow.html">1日の流れ</a></li>
+            <li><a class="header__nav-link" href="guide.html">ご利用について</a></li>
+            <li><a class="header__nav-link" href="contact.html">お問い合わせ・アクセス</a></li>
+          </ul>
+        </nav>
+
+        <!-- 電話ボタン(PC・スマホ共通で常に表示) -->
+        <a class="header__tel-button" href="tel:" data-site-tel-link>
+          📞 <span data-site="tel"></span>
+        </a>
+
+        <!-- ハンバーガーメニュー(スマホのみ表示) -->
+        <button class="header__menu-icon js-menu-button" aria-label="メニューを開く" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- スマホ用ドロップダウンメニュー -->
+    <nav class="header__mobile-nav js-mobile-nav">
+      <ul class="header__mobile-nav-list">
+        <li><a class="header__mobile-nav-link" href="index.html">ホーム</a></li>
+        <li><a class="header__mobile-nav-link" href="about.html">快福庵について</a></li>
+        <li><a class="header__mobile-nav-link" href="rehab.html">リハビリ紹介</a></li>
+        <li><a class="header__mobile-nav-link" href="flow.html">1日の流れ</a></li>
+        <li><a class="header__mobile-nav-link" href="guide.html">ご利用について</a></li>
+        <li><a class="header__mobile-nav-link" href="contact.html">お問い合わせ・アクセス</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ==========================================================================
+         ①ファーストビュー
+         トップページと違い、写真は1枚だけなのでスライダーは使わない。
+         「hero」の土台だけcommon.cssを共有し、高さは60vhの通常サイズを使う。
+         ========================================================================== -->
+    <section class="hero">
+      <div class="hero__slide is-active js-rehab-hero-image"></div>
+
+      <div class="container hero__content">
+        <!-- このページの内容を表すh1。SEO上、1ページに1つだけ設置する -->
+        <h1 class="hero__copy" data-rehab="hero.title"></h1>
+        <p class="hero__lead" data-rehab="hero.copy"></p>
+        <a class="button button--main" href="contact.html" data-site="ctaButtonPrimary"></a>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         ②私たちのリハビリ(考え方セクション)
+         ========================================================================== -->
+    <section class="section philosophy">
+      <div class="container">
+        <div class="section-heading">
+          <h2 class="section-heading__title" data-rehab="philosophy.heading"></h2>
+          <span class="section-heading__line"></span>
+        </div>
+        <p class="philosophy__text" data-rehab="philosophy.text"></p>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         ③3本柱インフォグラフィック(このページのメインビジュアル)
+         デザインイメージそのものを画像として使用する。
+         (HTML/CSSで図形を再現するのではなく、1枚の画像として配置している)
+         ========================================================================== -->
+    <section class="section pillars-cycle-section">
+      <div class="container">
+        <div class="section-heading">
+          <h2 class="section-heading__title">3つの柱が連携するリハビリ</h2>
+          <span class="section-heading__line"></span>
+        </div>
+
+        <!-- 画像の縦横比(1402:1122)を維持したまま、
+             PCでは大きく、スマホでは画面幅に合わせて縮小して表示する -->
+        <img class="pillars-diagram-image"
+             src="images/rehab/pillars-triangle.png"
+             alt="鍛える・動きを変える・整えるの3つの柱が連携し、一人ひとりに合わせた専門性の高いリハビリを実現することを示す図">
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         ③マシントレーニング紹介
+         js-technique-image / js-technique-items : rehab.js が
+         data/rehab.json の techniques[0] から、写真とタグ一覧を描画する対象。
+         タイトル・説明文は data-rehab="techniques.0.title" 等で反映される。
+         ========================================================================== -->
+    <section class="section technique-section">
+      <div class="container">
+        <div class="technique-block">
+          <div class="technique-block__image js-technique-image" data-technique-index="0"></div>
+          <div class="technique-block__body">
+            <p class="technique-block__label">01</p>
+            <h2 class="technique-block__title" data-rehab="techniques.0.title"></h2>
+            <ul class="technique-block__items tag-list js-technique-items" data-technique-index="0">
+              <!-- ここに rehab.js が techniques[0].items を差し込みます -->
+            </ul>
+            <p class="technique-block__text" data-rehab="techniques.0.text"></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         ④レッドコード紹介
+         techniques[1] を使用。写真を右側に表示するため technique-block--reverse を付与。
+         ========================================================================== -->
+    <section class="section technique-section">
+      <div class="container">
+        <div class="technique-block technique-block--reverse">
+          <div class="technique-block__image js-technique-image" data-technique-index="1"></div>
+          <div class="technique-block__body">
+            <p class="technique-block__label">02</p>
+            <h2 class="technique-block__title" data-rehab="techniques.1.title"></h2>
+            <ul class="technique-block__items tag-list js-technique-items" data-technique-index="1">
+              <!-- ここに rehab.js が techniques[1].items を差し込みます -->
+            </ul>
+            <p class="technique-block__text" data-rehab="techniques.1.text"></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         ⑤個別リハビリ・マッサージ紹介
+         techniques[2] を使用。
+         ========================================================================== -->
+    <section class="section technique-section">
+      <div class="container">
+        <div class="technique-block">
+          <div class="technique-block__image js-technique-image" data-technique-index="2"></div>
+          <div class="technique-block__body">
+            <p class="technique-block__label">03</p>
+            <h2 class="technique-block__title" data-rehab="techniques.2.title"></h2>
+            <ul class="technique-block__items tag-list js-technique-items" data-technique-index="2">
+              <!-- ここに rehab.js が techniques[2].items を差し込みます -->
+            </ul>
+            <p class="technique-block__text" data-rehab="techniques.2.text"></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         ⑥国家資格を持つ専門職
+         js-professionals-content : rehab.js が data/rehab.json の
+         professionals(写真・資格名・説明文)を描画する対象。
+         役割の違いを強調せず、ひとつの安心材料として1グループで見せる。
+         ========================================================================== -->
+    <section class="section professionals">
+      <div class="container">
+        <div class="section-heading">
+          <h2 class="section-heading__title" data-rehab="professionals.heading"></h2>
+          <span class="section-heading__line"></span>
+        </div>
+
+        <div class="professionals__content js-professionals-content">
+          <!-- ここに rehab.js が professionals の内容(写真・資格タグ・説明文)を差し込みます -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         ⑦CTA(トップページと共通デザイン。common.cssのスタイルをそのまま使う)
+         ========================================================================== -->
+    <section class="section cta">
+      <div class="container">
+        <h2 class="cta__title" data-site="ctaSectionTitle"></h2>
+        <p class="cta__message" data-site="ctaMessage"></p>
+        <span class="cta__tel-number" data-site="tel"></span>
+
+        <div class="cta__buttons">
+          <a class="button button--main" href="tel:" data-site-tel-link>電話する</a>
+          <a class="button button--outline" href="contact.html">営業時間・アクセスを見る</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==========================================================================
+       フッター(index.htmlと共通構成)
+       ========================================================================== -->
+  <footer class="footer">
+    <div class="container">
+
+      <div class="footer__logo site-logo">
+        <img class="site-logo__image" src="images/common/logo.png" alt="リハビリデイ快福庵">
+      </div>
+
+      <div class="footer__grid">
+
+        <div>
+          <p class="footer__heading">営業時間・住所</p>
+          <p class="footer__text" data-site="businessHours"></p>
+          <p class="footer__text" data-site="address"></p>
+          <a class="footer__text footer__map-link" data-site-href="googleMapUrl" target="_blank" rel="noopener">
+            Googleマップで見る ▶
+          </a>
+          <p class="footer__text">
+            電話:<span data-site="tel"></span>
+          </p>
+        </div>
+
+        <div>
+          <p class="footer__heading">メニュー</p>
+          <a class="footer__nav-link" href="index.html">ホーム</a>
+          <a class="footer__nav-link" href="about.html">快福庵について</a>
+          <a class="footer__nav-link" href="rehab.html">リハビリ紹介</a>
+          <a class="footer__nav-link" href="flow.html">1日の流れ</a>
+          <a class="footer__nav-link" href="guide.html">ご利用について</a>
+          <a class="footer__nav-link" href="contact.html">お問い合わせ・アクセス</a>
+          <a class="footer__nav-link" href="https://example.com/recruit/" target="_blank" rel="noopener">採用情報</a>
+        </div>
+
+      </div>
+
+      <!-- プライバシーポリシー・各種書類(PDF)へのリンク。
+           ホームページ公開時に、実際のページ・PDFファイルへのリンクへ差し替える想定。 -->
+      <div class="footer__legal-links">
+        <a href="privacy.html" target="_blank" rel="noopener">プライバシーポリシー</a>
+        <a href="documents/unei-kitei.pdf" target="_blank" rel="noopener">運営規程(PDF)</a>
+        <a href="documents/juuyoujikou.pdf" target="_blank" rel="noopener">重要事項説明書(PDF)</a>
+      </div>
+
+      <p class="footer__copyright">&copy; 2026 リハビリデイ快福庵</p>
+
+    </div>
+  </footer>
+
+  <!-- common.js(全ページ共通) → rehab.js(このページ専用)の順で読み込む -->
+  <script src="js/common.js"></script>
+  <script src="js/rehab.js"></script>
+
+</body>
+</html>

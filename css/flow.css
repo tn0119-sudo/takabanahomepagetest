@@ -1,0 +1,294 @@
+/* ==========================================================================
+   flow.css
+
+   【このファイルの役割】
+   1日の流れページ(flow.html)だけで使うスタイルをまとめる。
+   ヘッダー・フッター・ヒーロー・CTA・ボタン・カード・営業時間カードなど、
+   他ページと共通の部分は common.css にあるため、ここには書かない。
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. 導入文
+   -------------------------------------------------------------------------- */
+
+.flow-intro__text {
+  max-width: 640px;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 16px;
+}
+
+/* --------------------------------------------------------------------------
+   2. タイムライン(このページのメインコンテンツ)
+   -------------------------------------------------------------------------- */
+/* 設計方針:
+   ・スマホ:各項目の上に「午前/午後」の時刻を並べ、その下にプログラム内容を表示
+   ・PC(768px〜):左に午前・中央にプログラム内容・右に午後、という3列構成にする
+     (参考サイトのレイアウトに合わせている)
+   ・「各種リハビリ」(size: featured)は背景色とアクセントの縦線をつけて目立たせ、
+     「脳トレ」(size: minor)は文字サイズ・写真サイズを小さくして控えめに扱う */
+
+.timeline {
+  max-width: 880px;
+  margin: 0 auto;
+}
+
+/* PC表示のみで使う、列の見出し(午前/プログラム内容/午後) */
+.timeline-header {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .timeline-header {
+    display: grid;
+    grid-template-columns: 140px 1fr 140px;
+    column-gap: 24px;
+    padding-bottom: 16px;
+    margin-bottom: 8px;
+    border-bottom: 2px solid var(--color-navy);
+    text-align: center;
+    font-weight: var(--fw-bold);
+    color: var(--color-navy);
+    font-size: 14px;
+  }
+}
+
+.timeline-item {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas:
+    "am pm"
+    "center center";
+  gap: 4px 16px;
+  padding: 28px 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.timeline-item:last-child {
+  border-bottom: none;
+}
+
+@media (min-width: 768px) {
+  .timeline-item {
+    grid-template-columns: 140px 1fr 140px;
+    grid-template-areas: "am center pm";
+    column-gap: 24px;
+    align-items: start;
+    padding: 36px 0;
+  }
+}
+
+.timeline-item__time {
+  font-size: 15px;
+  font-weight: var(--fw-bold);
+  color: var(--color-navy);
+}
+
+.timeline-item__time--am {
+  grid-area: am;
+  text-align: left;
+}
+
+.timeline-item__time--pm {
+  grid-area: pm;
+  text-align: right;
+}
+
+/* スマホでは「午前」「午後」の小さなラベルを時刻の上に付け、
+   PCでは列見出し(.timeline-header)で分かるため非表示にする */
+.timeline-item__time--am::before,
+.timeline-item__time--pm::before {
+  display: block;
+  font-size: 11px;
+  font-weight: var(--fw-regular);
+  color: var(--color-text-sub);
+  margin-bottom: 2px;
+}
+
+.timeline-item__time--am::before {
+  content: "午前";
+}
+
+.timeline-item__time--pm::before {
+  content: "午後";
+}
+
+@media (min-width: 768px) {
+  .timeline-item__time--am,
+  .timeline-item__time--pm {
+    text-align: center;
+    padding-top: 4px;
+  }
+
+  .timeline-item__time--am::before,
+  .timeline-item__time--pm::before {
+    display: none;
+  }
+}
+
+.timeline-item__center {
+  grid-area: center;
+  text-align: center;
+}
+
+/* 何番目の項目かを示す、小さな丸印(サイズはitem.sizeによってCSSで変える) */
+.timeline-item__marker {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: var(--color-navy);
+  margin-bottom: 10px;
+}
+
+.timeline-item__title {
+  font-size: 17px;
+  font-weight: var(--fw-bold);
+  color: var(--color-navy);
+  margin-bottom: 8px;
+}
+
+.timeline-item__text {
+  font-size: 13px;
+  color: var(--color-text);
+  line-height: 1.8;
+  max-width: 420px;
+  margin: 0 auto;
+}
+
+/* 写真は「邪魔をしないアクセント」としつつ、これまでより少し大きめに、
+   左右どちらにも配置されるようバランスを取っている(5パターンの内訳:
+   左寄り2パターン・右寄り2パターン・ほぼ中央1パターン)。
+   位置のズレはmarginではなくtransformで表現しているため、
+   後ろに続く文章の位置(レイアウトの流れ)には影響しない。
+   縦方向にも少しずらすことで、写真が軽く重なって見える自然さを出している。 */
+.timeline-item__photo {
+  border-radius: var(--radius-m);
+  background-color: var(--color-border); /* 画像未設定時の仮の背景色 */
+  background-size: cover;
+  background-position: center;
+  margin: 0 auto 18px;
+}
+
+.timeline-item__photo--v1 {
+  width: 128px;
+  aspect-ratio: 3 / 4;
+  transform: translate(-28px, -6px) rotate(-4deg);
+}
+
+.timeline-item__photo--v2 {
+  width: 156px;
+  aspect-ratio: 4 / 3;
+  transform: translate(30px, 8px) rotate(3deg);
+}
+
+.timeline-item__photo--v3 {
+  width: 118px;
+  aspect-ratio: 1 / 1;
+  transform: translate(4px, -2px) rotate(-2deg);
+}
+
+.timeline-item__photo--v4 {
+  width: 140px;
+  aspect-ratio: 3 / 4;
+  transform: translate(22px, -4px) rotate(5deg);
+}
+
+.timeline-item__photo--v5 {
+  width: 148px;
+  aspect-ratio: 4 / 3;
+  transform: translate(-32px, 6px) rotate(-6deg);
+}
+
+/* 「各種リハビリ」のみ、写真を複数枚まとめて見せる。
+   グリッドで整列させるのではなく、少し重なりを持たせた
+   「集合写真風」のレイアウトにするため、絶対配置で1枚ずつ位置をずらしている。
+   (画像が4枚である前提で位置を決めている。枚数を変える場合はここも調整する) */
+.timeline-item__photos--scatter {
+  position: relative;
+  /* 340pxのまま固定すると、画面幅の狭いスマホでは
+     左右の余白(コンテナのpadding)からはみ出してしまうため、
+     画面幅から左右の余白分を引いた幅を超えないようにする。
+     写真同士の重なり方(position/widthの数値)は変更していない。 */
+  width: min(340px, calc(100vw - 48px));
+  height: 260px;
+  margin: 0 auto 20px;
+}
+
+.timeline-item__photos--scatter .timeline-item__photo {
+  position: absolute;
+  margin: 0;
+  box-shadow: 0 4px 10px rgba(27, 42, 74, 0.12); /* 重なりが分かるよう、控えめな影だけ例外的に使用 */
+}
+
+.timeline-item__photos--scatter .timeline-item__photo:nth-child(1) {
+  top: 0;
+  left: 2%;
+  width: 170px;
+  aspect-ratio: 4 / 3;
+  transform: rotate(-5deg);
+  z-index: 2;
+}
+
+.timeline-item__photos--scatter .timeline-item__photo:nth-child(2) {
+  top: 4%;
+  right: 0;
+  width: 136px;
+  aspect-ratio: 3 / 4;
+  transform: rotate(6deg);
+  z-index: 3;
+}
+
+.timeline-item__photos--scatter .timeline-item__photo:nth-child(3) {
+  bottom: 0;
+  left: 0;
+  width: 142px;
+  aspect-ratio: 3 / 4;
+  transform: rotate(4deg);
+  z-index: 1;
+}
+
+.timeline-item__photos--scatter .timeline-item__photo:nth-child(4) {
+  bottom: 0;
+  right: 4%;
+  width: 168px;
+  aspect-ratio: 4 / 3;
+  transform: rotate(-3deg);
+  z-index: 2;
+}
+
+/* ---- サイズのバリエーション ---- */
+
+/* 「各種リハビリ」:色や背景で目立たせるのではなく、
+   写真を少し多めに使うこと・説明文を少し充実させることだけで
+   自然に主役だと分かるようにしている(カード自体は他と同じデザイン)。 */
+
+/* 各種リハビリのカード内にだけ表示する、リハビリ紹介ページへの小さなリンク。
+   ページの流れを止めたくないため、大きなボタンではなく控えめなテキストリンクにしている。 */
+.timeline-item__rehab-link {
+  display: inline-block;
+  margin-top: 16px;
+  font-size: 13px;
+  font-weight: var(--fw-bold);
+  color: var(--color-navy);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* 「脳トレ」:最後に短時間だけ行う内容のため、控えめに扱う。
+   写真サイズは他の項目と統一し、文字サイズ・説明文の分量だけで
+   控えめな印象を表現している。 */
+.timeline-item--minor .timeline-item__marker {
+  width: 6px;
+  height: 6px;
+  background-color: var(--color-border);
+}
+
+.timeline-item--minor .timeline-item__title {
+  font-size: 14px;
+}
+
+.timeline-item--minor .timeline-item__text {
+  font-size: 12px;
+  color: var(--color-text-sub);
+}

@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ご利用について｜印西市のリハビリ特化型デイサービス｜快福庵</title>
+  <meta name="description" content="印西市のリハビリ特化型デイサービス「リハビリデイ快福庵」のご利用までの流れや利用時間、送迎などについてご案内します。見学・ご利用を検討されている方に、初めての方にも分かりやすくご紹介します。">
+
+  <!-- 見出し・本文ともに Noto Sans JP のみを使用し、太さの違いでメリハリをつける -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+  <!-- CSSの読み込み順に意味がある。
+       reset → common(全ページ共通) → guide(このページ専用) の順 -->
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/guide.css">
+</head>
+<body>
+
+  <!-- ==========================================================================
+       アイコンのSVGスプライト
+       ページ内では表示せず(display:none)、<use>で必要な場所に呼び出して使う。
+       アイコンを増やしたい場合は、ここに<symbol>を追加すればよい。
+       ========================================================================== -->
+  <svg style="display: none;" aria-hidden="true">
+    <defs>
+      <!-- 要支援1・2 -->
+      <symbol id="guide-icon-support" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="21" cy="15" r="7"></circle>
+        <path d="M9 38 C9 28, 14 24, 21 24 C28 24, 33 28, 33 38"></path>
+        <circle cx="34" cy="33" r="7" fill="#ffffff"></circle>
+        <path d="M31 33 L33.5 35.5 L37.5 30.5"></path>
+      </symbol>
+
+      <!-- 要介護1〜5 -->
+      <symbol id="guide-icon-care" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="21" cy="15" r="7"></circle>
+        <path d="M9 38 C9 28, 14 24, 21 24 C28 24, 33 28, 33 38"></path>
+        <path d="M31 30 C31 28, 33.5 28, 33.5 30 C33.5 32, 31 33.5, 31 35 C31 33.5, 28.5 32, 28.5 30 C28.5 28, 31 28, 31 30 Z" fill="currentColor" stroke="none"></path>
+      </symbol>
+
+      <!-- 印西市にお住まいの方 -->
+      <symbol id="guide-icon-area" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M24 6 C16 6, 10 12, 10 20 C10 30, 24 42, 24 42 C24 42, 38 30, 38 20 C38 12, 32 6, 24 6 Z"></path>
+        <circle cx="24" cy="20" r="5"></circle>
+      </symbol>
+
+      <!-- 自費利用 -->
+      <symbol id="guide-icon-private" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="24" cy="24" r="16"></circle>
+        <path d="M18 15 L24 24 L30 15 M24 24 L24 33 M19 27 L29 27 M19 31 L29 31"></path>
+      </symbol>
+
+      <!-- お問い合わせ -->
+      <symbol id="guide-icon-contact" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M16 9 C15 9, 14 10, 14 11 C14 24, 24 34, 37 34 C38 34, 39 33, 39 32 L39 28 C39 27, 38 26, 37 26 L31 25 C30 25, 29 25, 29 26 L27 28 C22 26, 18 22, 16 17 L18 15 C19 15, 19 14, 19 13 L18 11 C18 10, 17 9, 16 9 Z"></path>
+      </symbol>
+
+      <!-- ご見学・体験 -->
+      <symbol id="guide-icon-visit" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M8 44 L8 21 L24 8 L40 21 L40 44 Z"></path>
+        <rect x="19" y="29" width="10" height="15"></rect>
+      </symbol>
+
+      <!-- ケアマネジャーへご相談 -->
+      <symbol id="guide-icon-consult" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="17" cy="15" r="6"></circle>
+        <path d="M7 38 C7 30, 11 26, 17 26 C23 26, 27 30, 27 38"></path>
+        <circle cx="33" cy="17" r="5"></circle>
+        <path d="M24 38 C24 32, 27.5 28, 33 28 C38.5 28, 42 32, 42 38"></path>
+      </symbol>
+
+      <!-- ご契約 -->
+      <symbol id="guide-icon-contract" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="9" y="6" width="21" height="30" rx="2"></rect>
+        <line x1="14" y1="15" x2="25" y2="15"></line>
+        <line x1="14" y1="21" x2="25" y2="21"></line>
+        <line x1="14" y1="27" x2="21" y2="27"></line>
+        <path d="M27 32 L37 22 L41 26 L31 36 L26 37 Z"></path>
+      </symbol>
+
+      <!-- ご利用開始 -->
+      <symbol id="guide-icon-start" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="24" cy="24" r="16"></circle>
+        <path d="M17 24 L22 29 L32 18"></path>
+      </symbol>
+    </defs>
+  </svg>
+
+  <!-- ==========================================================================
+       ヘッダー(他ページと共通構成)
+       ========================================================================== -->
+  <header class="header js-header">
+    <div class="container header__inner">
+
+      <a href="index.html" class="header__logo site-logo">
+        <img class="site-logo__image" src="images/common/logo.png" alt="リハビリデイ快福庵">
+      </a>
+
+      <div class="header__right">
+
+        <!-- PC用ナビゲーション(スマホでは非表示。CSS側で切り替え) -->
+        <nav class="header__nav">
+          <ul class="header__nav-list">
+            <li><a class="header__nav-link" href="index.html">ホーム</a></li>
+            <li><a class="header__nav-link" href="about.html">快福庵について</a></li>
+            <li><a class="header__nav-link" href="rehab.html">リハビリ紹介</a></li>
+            <li><a class="header__nav-link" href="flow.html">1日の流れ</a></li>
+            <li><a class="header__nav-link" href="guide.html">ご利用について</a></li>
+            <li><a class="header__nav-link" href="contact.html">お問い合わせ・アクセス</a></li>
+          </ul>
+        </nav>
+
+        <!-- 電話ボタン(PC・スマホ共通で常に表示) -->
+        <a class="header__tel-button" href="tel:" data-site-tel-link>
+          📞 <span data-site="tel"></span>
+        </a>
+
+        <!-- ハンバーガーメニュー(スマホのみ表示) -->
+        <button class="header__menu-icon js-menu-button" aria-label="メニューを開く" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- スマホ用ドロップダウンメニュー -->
+    <nav class="header__mobile-nav js-mobile-nav">
+      <ul class="header__mobile-nav-list">
+        <li><a class="header__mobile-nav-link" href="index.html">ホーム</a></li>
+        <li><a class="header__mobile-nav-link" href="about.html">快福庵について</a></li>
+        <li><a class="header__mobile-nav-link" href="rehab.html">リハビリ紹介</a></li>
+        <li><a class="header__mobile-nav-link" href="flow.html">1日の流れ</a></li>
+        <li><a class="header__mobile-nav-link" href="guide.html">ご利用について</a></li>
+        <li><a class="header__mobile-nav-link" href="contact.html">お問い合わせ・アクセス</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ==========================================================================
+         ①ファーストビュー
+         ========================================================================== -->
+    <section class="hero">
+      <div class="hero__slide is-active js-guide-hero-image"></div>
+
+      <div class="container hero__content">
+        <!-- このページの内容を表すh1。SEO上、1ページに1つだけ設置する -->
+        <h1 class="hero__copy" data-guide="hero.title"></h1>
+        <p class="hero__lead" data-guide="hero.copy"></p>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         ②ご利用いただける方
+         js-eligibility : guide.js が data/guide.json の eligibility.items から
+         アイコン付きのカードを描画する対象。
+         ========================================================================== -->
+    <section class="section eligibility">
+      <div class="container">
+        <div class="section-heading">
+          <h2 class="section-heading__title" data-guide="eligibility.heading"></h2>
+          <span class="section-heading__line"></span>
+        </div>
+
+        <div class="eligibility-grid js-eligibility">
+          <!-- ここに guide.js が eligibility.items の内容を差し込みます -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         ③ご利用開始までの流れ(このページのメインコンテンツ)
+         js-steps : guide.js が data/guide.json の steps から
+         アイコン付きのステップを描画する対象。
+         ========================================================================== -->
+    <section class="section steps-section">
+      <div class="container">
+        <div class="section-heading">
+          <h2 class="section-heading__title">ご利用開始までの流れ</h2>
+          <span class="section-heading__line"></span>
+        </div>
+
+        <ol class="steps js-steps">
+          <!-- ここに guide.js が steps の内容を差し込みます -->
+        </ol>
+
+        <!-- ==========================================================================
+             ④介護保険をまだ利用していない方へ(案内カード)
+             ========================================================================== -->
+        <p class="notice-card" data-guide="notice.text"></p>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         ⑤よくある質問
+         js-faq : guide.js が data/guide.json の faq から
+         <details>/<summary>によるアコーディオンを描画する対象。
+         ========================================================================== -->
+    <section class="section faq-section">
+      <div class="container">
+        <div class="section-heading">
+          <h2 class="section-heading__title">よくある質問</h2>
+          <span class="section-heading__line"></span>
+        </div>
+
+        <div class="faq js-faq">
+          <!-- ここに guide.js が faq の内容を差し込みます -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         ⑥CTA(トップページと共通デザイン。common.cssのスタイルをそのまま使う)
+         ========================================================================== -->
+    <section class="section cta">
+      <div class="container">
+        <h2 class="cta__title" data-site="ctaSectionTitle"></h2>
+        <p class="cta__message" data-site="ctaMessage"></p>
+        <span class="cta__tel-number" data-site="tel"></span>
+
+        <div class="cta__buttons">
+          <a class="button button--main" href="tel:" data-site-tel-link>電話する</a>
+          <a class="button button--outline" href="contact.html">営業時間・アクセスを見る</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==========================================================================
+       フッター(他ページと共通構成)
+       ========================================================================== -->
+  <footer class="footer">
+    <div class="container">
+
+      <div class="footer__logo site-logo">
+        <img class="site-logo__image" src="images/common/logo.png" alt="リハビリデイ快福庵">
+      </div>
+
+      <div class="footer__grid">
+
+        <div>
+          <p class="footer__heading">営業時間・住所</p>
+          <p class="footer__text" data-site="businessHours"></p>
+          <p class="footer__text" data-site="address"></p>
+          <a class="footer__text footer__map-link" data-site-href="googleMapUrl" target="_blank" rel="noopener">
+            Googleマップで見る ▶
+          </a>
+          <p class="footer__text">
+            電話:<span data-site="tel"></span>
+          </p>
+        </div>
+
+        <div>
+          <p class="footer__heading">メニュー</p>
+          <a class="footer__nav-link" href="index.html">ホーム</a>
+          <a class="footer__nav-link" href="about.html">快福庵について</a>
+          <a class="footer__nav-link" href="rehab.html">リハビリ紹介</a>
+          <a class="footer__nav-link" href="flow.html">1日の流れ</a>
+          <a class="footer__nav-link" href="guide.html">ご利用について</a>
+          <a class="footer__nav-link" href="contact.html">お問い合わせ・アクセス</a>
+          <a class="footer__nav-link" href="https://example.com/recruit/" target="_blank" rel="noopener">採用情報</a>
+        </div>
+
+      </div>
+
+      <!-- プライバシーポリシー・各種書類(PDF)へのリンク。
+           ホームページ公開時に、実際のページ・PDFファイルへのリンクへ差し替える想定。 -->
+      <div class="footer__legal-links">
+        <a href="privacy.html" target="_blank" rel="noopener">プライバシーポリシー</a>
+        <a href="documents/unei-kitei.pdf" target="_blank" rel="noopener">運営規程(PDF)</a>
+        <a href="documents/juuyoujikou.pdf" target="_blank" rel="noopener">重要事項説明書(PDF)</a>
+      </div>
+
+      <p class="footer__copyright">&copy; 2026 リハビリデイ快福庵</p>
+
+    </div>
+  </footer>
+
+  <!-- common.js(全ページ共通) → guide.js(このページ専用)の順で読み込む -->
+  <script src="js/common.js"></script>
+  <script src="js/guide.js"></script>
+
+</body>
+</html>

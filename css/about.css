@@ -1,0 +1,104 @@
+/* ==========================================================================
+   about.css
+
+   【このファイルの役割】
+   施設についてページ(about.html)だけで使うスタイルをまとめる。
+   ヘッダー・フッター・ヒーロー・CTA・ボタン・カード・タグリストなど、
+   他ページと共通の部分は common.css にあるため、ここには書かない。
+
+   このページは「専門性」ではなく「安心感」を伝える役割のため、
+   文字を詰め込みすぎず、余白と写真を主役にしたレイアウトを意識している。
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. コンセプト紹介
+   -------------------------------------------------------------------------- */
+/* 箇条書きのポイントではなく、自然な文章の流れとして見せる。
+   1行の長さを読みやすい幅に制限し、段落の間に大きめの写真を1枚挟むことで、
+   文章だけが続く単調な印象にならないようにしている。 */
+
+.concept__text-wrap {
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.concept__paragraph {
+  font-size: 16px;
+  line-height: 1.9;
+  margin-bottom: 28px;
+}
+
+.concept__paragraph:last-child {
+  margin-bottom: 0;
+}
+
+.concept__photo {
+  aspect-ratio: 16 / 10;
+  background-color: var(--color-border); /* 画像未設定時の仮の背景色 */
+  background-size: cover;
+  background-position: center;
+  border-radius: var(--radius-m);
+  margin: 40px 0;
+}
+
+/* --------------------------------------------------------------------------
+   2. 写真ギャラリー
+   -------------------------------------------------------------------------- */
+/* 一覧で並べるのではなく、「大きな写真 → 説明文 → 横並びの写真」という
+   順番で組み立て、写真の大きさにメリハリをつけている。 */
+
+.gallery-main {
+  aspect-ratio: 16 / 9;
+  background-color: var(--color-border); /* 動画未設定時、および縦長動画の左右の背景色 */
+  border-radius: var(--radius-m);
+  margin-bottom: 32px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* gallery-mainの中に配置する縦長(9:16)動画。
+   枠を横方向に引き伸ばさず、元の縦横比を保ったまま中央配置する。
+   動画の左右に生まれる余白には、.gallery-mainのbackground-colorがそのまま見える。 */
+.gallery-main__video {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.gallery-caption {
+  max-width: 560px;
+  margin: 0 auto 40px;
+  text-align: center;
+  font-size: 15px;
+  color: var(--color-text-sub);
+}
+
+.gallery-sub {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+@media (min-width: 768px) {
+  .gallery-sub {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+}
+
+.gallery-sub-item {
+  aspect-ratio: 4 / 3;
+  background-color: var(--color-border); /* 画像未設定時の仮の背景色 */
+  background-size: cover;
+  background-position: center;
+  border-radius: var(--radius-m);
+}
+
+/* --------------------------------------------------------------------------
+   3. 営業時間・ご利用について
+   -------------------------------------------------------------------------- */
+/* カード自体の見た目(.business-hours / .business-hours-card)は
+   common.cssの共通コンポーネントを使用する(他ページでも使い回すため)。
+   ここでは、このページ特有の並びなどがあれば追記する。 */

@@ -1,0 +1,78 @@
+{
+  "_comment": "1日の流れページだけで使うコンテンツ。このページの役割は『3時間がどう過ぎていくか』をイメージしてもらうことなので、リハビリの詳しい内容はrehab.jsonに譲り、ここでは各種リハビリの説明を1文だけ持たせている。",
+
+  "hero": {
+    "title": "半日の流れ",
+    "copy": "お迎えからお送りまで、約3時間の過ごし方をご紹介します。",
+    "image": "images/flow/hero.avif"
+  },
+
+  "intro": {
+    "text": "1回のご利用は、約3時間。長時間の拘束がないから、生活のリズムを崩さず、無理なく通っていただけます。"
+  },
+
+  "_timelineComment": "sizeは 'normal' / 'featured'(一番目立たせる:各種リハビリ) / 'minor'(控えめにする:脳トレ) のいずれか。imagesは複数枚(featured用)、imageは1枚(それ以外)を想定している。",
+  "timeline": [
+    {
+      "amTime": "8:15〜",
+      "pmTime": "13:00〜",
+      "title": "ご自宅までお迎え",
+      "text": "スタッフが、ご自宅まで安全にお迎えに伺います。",
+      "image": "images/flow/pickup.jpg",
+      "size": "normal"
+    },
+    {
+      "amTime": "8:50〜",
+      "pmTime": "13:30〜",
+      "title": "到着・健康チェック",
+      "text": "到着後、体温・血圧などの健康チェックを行います。",
+      "image": "images/flow/checkup.jpg",
+      "size": "normal"
+    },
+    {
+      "amTime": "9:00〜",
+      "pmTime": "13:40〜",
+      "title": "準備運動",
+      "text": "身体を動かす前に、映像を見ながら準備を整えます。",
+      "image": "images/flow/warmup.jpg",
+      "size": "normal"
+    },
+    {
+      "amTime": "9:15〜",
+      "pmTime": "13:55〜",
+      "title": "各種リハビリ",
+      "text": "マシントレーニング・レッドコード・個別リハビリ・身体ケアなど、専門職がお一人おひとりの身体の状態や目標に合わせて内容を組み立てます。この時間がプログラムの中心です。",
+      "images": [
+        "images/flow/rehab-machine.jpg",
+        "images/flow/rehab-redcord.jpg",
+        "images/flow/rehab-individual.jpg",
+        "images/flow/rehab-care.jpg"
+      ],
+      "size": "featured"
+    },
+    {
+      "amTime": "11:35〜",
+      "pmTime": "16:15〜",
+      "title": "脳トレ",
+      "text": "最後に10分程度、簡単な脳トレ・クイズを行います。",
+      "image": "images/flow/braintraining.jpg",
+      "size": "minor"
+    },
+    {
+      "amTime": "11:50〜",
+      "pmTime": "16:30〜",
+      "title": "ご自宅までお送り",
+      "text": "お帰りも、スタッフが安全にご自宅までお送りします。",
+      "image": "images/flow/dropoff.jpg",
+      "size": "normal"
+    }
+  ],
+
+  "rehabLinkLabel": "リハビリ内容について詳しくはこちら ▶",
+
+  "businessHoursCards": [
+    { "label": "営業日", "value": "月曜日 〜 土曜日" },
+    { "label": "定休日", "value": "日曜日" },
+    { "label": "ご利用時間", "value": "午前 8:50〜11:50<br>午後 13:30〜16:30" }
+  ]
+}

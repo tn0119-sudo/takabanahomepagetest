@@ -1,0 +1,56 @@
+/* ==========================================================================
+   privacy.css
+
+   【このファイルの役割】
+   プライバシーポリシーページ(privacy.html)だけで使うスタイル。
+   このページには写真を使ったヒーローがないため、
+   ヘッダーの文字が最初から読みやすいよう、上部だけネイビー背景の
+   シンプルな見出しエリアにしている(他ページの.heroの代わり)。
+   ========================================================================== */
+
+/* ページ上部の見出しエリア(写真の代わりに、ネイビー背景+白文字にしている) */
+.privacy-hero {
+  background-color: var(--color-navy);
+  color: #ffffff;
+  text-align: center;
+  padding-top: 140px; /* 固定ヘッダーの下に隠れないよう、余白を多めに取る */
+  padding-bottom: 56px;
+}
+
+.privacy-hero__title {
+  color: #ffffff; /* 見出しは基本ネイビーだが、ここは背景自体がネイビーのため白文字にする */
+  font-size: 28px;
+  margin-bottom: 12px;
+}
+
+.privacy-hero__note {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* 本文エリア。文章を入力・編集しやすいよう、読みやすい幅に絞っている */
+.privacy-content__wrap {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.privacy-content__wrap h2 {
+  font-size: 19px;
+  margin-top: 40px;
+  margin-bottom: 12px;
+}
+
+.privacy-content__wrap h2:first-child {
+  margin-top: 0;
+}
+
+.privacy-content__wrap p {
+  font-size: 15px;
+  line-height: 1.9;
+  color: var(--color-text);
+}
+
+/* 「ここに文章を入力してください」のような仮テキストだと分かるようにする */
+.privacy-content__placeholder {
+  color: var(--color-text-sub);
+}

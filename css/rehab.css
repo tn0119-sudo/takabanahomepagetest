@@ -1,0 +1,145 @@
+/* ==========================================================================
+   rehab.css
+
+   【このファイルの役割】
+   リハビリ紹介ページ(rehab.html)だけで使うスタイルをまとめる。
+   ヘッダー・フッター・ヒーロー・CTA・ボタン・カードなど、
+   他ページと共通の部分は common.css にあるため、ここには書かない。
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. 私たちのリハビリ(考え方セクション)
+   -------------------------------------------------------------------------- */
+
+/* 文章中心のセクションのため、1行の長さを読みやすい幅に制限し、
+   中央寄せにすることで「余白を広く」というルールを保つ。 */
+.philosophy__text {
+  max-width: 640px;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 16px;
+}
+
+/* --------------------------------------------------------------------------
+   2. 3本柱インフォグラフィック(このページのメインビジュアル)
+   -------------------------------------------------------------------------- */
+/* 図そのものはデザイン確定済みの画像(images/rehab/pillars-triangle.png)を
+   そのまま使用する。ここでは「画像の縦横比を保ったまま、PCでは大きく、
+   スマホでは画面幅に合わせて縮小して表示する」ことだけを管理する。 */
+
+.pillars-diagram-image {
+  display: block;
+  width: 100%;
+  height: auto; /* 縦横比(1402:1122)を保ったまま幅に合わせて縮小・拡大する */
+  max-width: 980px; /* PCで大きく見せつつ、際限なく広がらないよう上限を設ける */
+  margin: 0 auto;
+}
+
+/* --------------------------------------------------------------------------
+   3. マシントレーニング/レッドコード/個別リハビリ・マッサージ(技術紹介)
+   -------------------------------------------------------------------------- */
+/* 3つを1つのセクションにまとめるのではなく、あえて個別のセクションとして
+   縦に並べ、それぞれの写真を大きく使う。奇数番目は写真を左、
+   偶数番目(.technique-block--reverse)は写真を右にして、単調にならないようにする。 */
+
+.technique-block {
+  display: grid;
+  gap: 24px;
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .technique-block {
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+  }
+
+  .technique-block--reverse .technique-block__image {
+    order: 2;
+  }
+}
+
+.technique-block__image {
+  aspect-ratio: 4 / 3;
+  background-color: var(--color-border); /* 画像未設定時の仮の背景色 */
+  background-size: cover;
+  background-position: center;
+  border-radius: var(--radius-m);
+}
+
+.technique-block__label {
+  color: var(--color-main-dark);
+  font-weight: var(--fw-black);
+  font-size: 13px;
+  letter-spacing: 0.05em;
+  margin-bottom: 8px;
+}
+
+.technique-block__title {
+  font-size: 22px;
+  margin-bottom: 12px;
+}
+
+/* マシントレーニング/基礎体力/筋力向上、のようなタグの並びは
+   common.cssの共通コンポーネント(.tag-list)を使用する */
+.technique-block__items {
+  margin-bottom: 16px;
+}
+
+.technique-block__text {
+  font-size: 14px;
+  color: var(--color-text);
+}
+
+/* このセクションだけ、共通の.sectionより上下の余白を意図的に詰めている。
+   3つ連続で並ぶため、通常の余白のままだと写真同士・セクション同士が
+   離れすぎて見えてしまうため。 */
+.technique-section {
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+
+@media (min-width: 768px) {
+  .technique-section {
+    padding-top: 104px;
+    padding-bottom: 104px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   4. 国家資格を持つ専門職セクション
+   -------------------------------------------------------------------------- */
+/* 役割の違いを強調するのではなく、「国家資格を持つ専門職が在籍している」
+   という安心感を一つのまとまりとして伝えるため、
+   写真+資格名(タグ)+説明文をひとかたまりで見せる構成にしている。 */
+
+.professionals__content {
+  display: grid;
+  gap: 32px;
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .professionals__content {
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+  }
+}
+
+.professionals__image {
+  aspect-ratio: 4 / 3;
+  background-color: var(--color-border); /* 画像未設定時の仮の背景色 */
+  background-size: cover;
+  background-position: center;
+  border-radius: var(--radius-m);
+}
+
+/* 資格名の並びは共通コンポーネント(.tag-list)を使用する */
+.professionals__qualifications {
+  margin-bottom: 16px;
+}
+
+.professionals__text {
+  font-size: 15px;
+  color: var(--color-text);
+}

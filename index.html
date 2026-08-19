@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>リハビリデイ快福庵｜印西市のリハビリ特化型デイサービス</title>
+  <meta name="description" content="印西市のリハビリ特化型デイサービス「リハビリデイ快福庵」。3時間の短時間利用で、マシントレーニングやレッドコード、個別リハビリ・身体ケアなど、一人ひとりに合わせたリハビリを提供しています。">
+
+  <!-- 見出し・本文ともに Noto Sans JP のみを使用し、太さの違いでメリハリをつける -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+  <!-- CSSの読み込み順に意味がある。
+       reset → common → index の順で、後のファイルほど詳細なスタイルになる -->
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+
+  <!-- ==========================================================================
+       ヘッダー
+       js-header : common.js がスクロール検知でクラスを付け外しする対象
+       ========================================================================== -->
+  <header class="header js-header">
+    <div class="container header__inner">
+
+      <a href="index.html" class="header__logo site-logo">
+        <img class="site-logo__image" src="images/common/logo.png" alt="リハビリデイ快福庵">
+      </a>
+
+      <div class="header__right">
+
+        <!-- PC用ナビゲーション(スマホでは非表示。CSS側で切り替え) -->
+        <nav class="header__nav">
+          <ul class="header__nav-list">
+            <li><a class="header__nav-link" href="index.html">ホーム</a></li>
+            <li><a class="header__nav-link" href="about.html">快福庵について</a></li>
+            <li><a class="header__nav-link" href="rehab.html">リハビリ紹介</a></li>
+            <li><a class="header__nav-link" href="flow.html">1日の流れ</a></li>
+            <li><a class="header__nav-link" href="guide.html">ご利用について</a></li>
+            <li><a class="header__nav-link" href="contact.html">お問い合わせ・アクセス</a></li>
+          </ul>
+        </nav>
+
+        <!-- 電話ボタン(PC・スマホ共通で常に表示) -->
+        <a class="header__tel-button" href="tel:" data-site-tel-link>
+          📞 <span data-site="tel"></span>
+        </a>
+
+        <!-- ハンバーガーメニュー(スマホのみ表示) -->
+        <button class="header__menu-icon js-menu-button" aria-label="メニューを開く" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- スマホ用ドロップダウンメニュー -->
+    <nav class="header__mobile-nav js-mobile-nav">
+      <ul class="header__mobile-nav-list">
+        <li><a class="header__mobile-nav-link" href="index.html">ホーム</a></li>
+        <li><a class="header__mobile-nav-link" href="about.html">快福庵について</a></li>
+        <li><a class="header__mobile-nav-link" href="rehab.html">リハビリ紹介</a></li>
+        <li><a class="header__mobile-nav-link" href="flow.html">1日の流れ</a></li>
+        <li><a class="header__mobile-nav-link" href="guide.html">ご利用について</a></li>
+        <li><a class="header__mobile-nav-link" href="contact.html">お問い合わせ・アクセス</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ==========================================================================
+         ①ファーストビュー
+         js-hero-slide : index.js が一定時間ごとに表示を切り替える対象
+         ========================================================================== -->
+    <section class="hero hero--fullscreen">
+      <div class="hero__slide hero__slide--shop js-hero-slide" style="background-image: url('images/hero/hero-1.jpg');"></div>
+      <div class="hero__slide js-hero-slide" style="background-image: url('images/hero/hero-2.jpg');"></div>
+      <div class="hero__slide js-hero-slide" style="background-image: url('images/hero/hero-3.jpg');"></div>
+
+      <div class="container hero__content">
+        <!-- SEO上、ページ内で最も重要な見出しとしてh1を使用する(1ページに1つだけ) -->
+        <h1 class="hero__copy" data-site="catchCopy"></h1>
+        <p class="hero__lead" data-site="catchCopySub"></p>
+        <a class="button button--main" href="contact.html" data-site="ctaButtonPrimary"></a>
+      </div>
+
+      <!-- スクロールを促すシンプルな案内(派手な動きはつけず、控えめな表示のみ) -->
+      <div class="hero__scroll-hint">
+        <span class="hero__scroll-hint-text">SCROLL</span>
+        <span class="hero__scroll-hint-line"></span>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         ②リハビリ紹介
+         ========================================================================== -->
+    <section class="section rehab">
+      <div class="container">
+
+        <div class="section-heading">
+          <h2 class="section-heading__title">専門職による、本気のリハビリ</h2>
+          <span class="section-heading__line"></span>
+        </div>
+
+        <div class="rehab-grid">
+
+          <div class="card">
+            <div class="rehab-card__image" style="background-image: url('images/rehab/rehab-1.jpg');"></div>
+            <div class="rehab-card__body">
+              <p class="rehab-card__title">専門職による個別リハビリ</p>
+              <p class="rehab-card__text">
+                理学療法士・柔道整復師・あん摩マッサージ指圧師・鍼灸師が、あなたの身体に合わせたメニューを作成します。
+              </p>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="rehab-card__image" style="background-image: url('images/rehab/rehab-2.jpg');"></div>
+            <div class="rehab-card__body">
+              <p class="rehab-card__title">レッドコード</p>
+              <p class="rehab-card__text">
+                体幹やインナーマッスルに働きかける、医療現場水準の運動療法です。
+              </p>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="rehab-card__image" style="background-image: url('images/rehab/rehab-3.jpg');"></div>
+            <div class="rehab-card__body">
+              <p class="rehab-card__title">マシントレーニング</p>
+              <p class="rehab-card__text">
+                「歩く」「立つ」を支える筋力を、専用マシンで安全に鍛えます。
+              </p>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="rehab-more">
+          <a class="button button--main" href="rehab.html">詳しく見る</a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         ③お知らせ
+         js-news-list : index.js が data/news.json を読み込んで中身を描画する対象
+         ========================================================================== -->
+    <section class="section news">
+      <div class="container">
+
+        <div class="section-heading">
+          <h2 class="section-heading__title">お知らせ</h2>
+          <span class="section-heading__line"></span>
+        </div>
+
+        <ul class="news-list js-news-list">
+          <!-- ここに index.js が data/news.json の内容を差し込みます -->
+        </ul>
+
+        <div class="news-more">
+          <a class="button button--outline-navy" href="news.html">一覧を見る</a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         ④店舗紹介
+         js-stores-list : index.js が data/site.json の stores を読み込んで描画する対象
+         ========================================================================== -->
+    <section class="section stores">
+      <div class="container">
+
+        <div class="section-heading">
+          <h2 class="section-heading__title">店舗紹介</h2>
+          <span class="section-heading__line"></span>
+        </div>
+
+        <div class="stores-grid js-stores-list">
+          <!-- ここに index.js が data/site.json の stores の内容を差し込みます -->
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         ⑤CTA(ネイビー背景)
+         ========================================================================== -->
+    <section class="section cta">
+      <div class="container">
+        <h2 class="cta__title" data-site="ctaSectionTitle"></h2>
+        <p class="cta__message" data-site="ctaMessage"></p>
+        <span class="cta__tel-number" data-site="tel"></span>
+
+        <div class="cta__buttons">
+          <a class="button button--main" href="tel:" data-site-tel-link>電話する</a>
+          <a class="button button--outline" href="contact.html">営業時間・アクセスを見る</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==========================================================================
+       フッター
+       ========================================================================== -->
+  <footer class="footer">
+    <div class="container">
+
+      <div class="footer__logo site-logo">
+        <img class="site-logo__image" src="images/common/logo.png" alt="リハビリデイ快福庵">
+      </div>
+
+      <div class="footer__grid">
+
+        <div>
+          <p class="footer__heading">営業時間・住所</p>
+          <p class="footer__text" data-site="businessHours"></p>
+          <p class="footer__text" data-site="address"></p>
+          <a class="footer__text footer__map-link" data-site-href="googleMapUrl" target="_blank" rel="noopener">
+            Googleマップで見る ▶
+          </a>
+          <p class="footer__text">
+            電話:<span data-site="tel"></span>
+          </p>
+        </div>
+
+        <div>
+          <p class="footer__heading">メニュー</p>
+          <a class="footer__nav-link" href="index.html">ホーム</a>
+          <a class="footer__nav-link" href="about.html">快福庵について</a>
+          <a class="footer__nav-link" href="rehab.html">リハビリ紹介</a>
+          <a class="footer__nav-link" href="flow.html">1日の流れ</a>
+          <a class="footer__nav-link" href="guide.html">ご利用について</a>
+          <a class="footer__nav-link" href="contact.html">お問い合わせ・アクセス</a>
+          <a class="footer__nav-link" href="https://example.com/recruit/" target="_blank" rel="noopener">採用情報</a>
+        </div>
+
+      </div>
+
+      <!-- プライバシーポリシー・各種書類(PDF)へのリンク。
+           ホームページ公開時に、実際のページ・PDFファイルへのリンクへ差し替える想定。 -->
+      <div class="footer__legal-links">
+        <a href="privacy.html" target="_blank" rel="noopener">プライバシーポリシー</a>
+        <a href="documents/unei-kitei.pdf" target="_blank" rel="noopener">運営規程(PDF)</a>
+        <a href="documents/juuyoujikou.pdf" target="_blank" rel="noopener">重要事項説明書(PDF)</a>
+      </div>
+
+      <p class="footer__copyright">&copy; 2026 リハビリデイ快福庵</p>
+
+    </div>
+  </footer>
+
+  <!-- JSの読み込み順にも意味がある。
+       common.js が site.json の読み込みと "siteDataLoaded" イベントの発行を行い、
+       index.js がそれを受け取って店舗一覧などを描画するため、
+       必ず common.js → index.js の順で読み込む -->
+  <script src="js/common.js"></script>
+  <script src="js/index.js"></script>
+
+</body>
+</html>

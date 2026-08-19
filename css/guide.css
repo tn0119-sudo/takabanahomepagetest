@@ -1,0 +1,192 @@
+/* ==========================================================================
+   guide.css
+
+   【このファイルの役割】
+   ご利用についてページ(guide.html)だけで使うスタイルをまとめる。
+   ヘッダー・フッター・ヒーロー・CTA・ボタン・カードなど、
+   他ページと共通の部分は common.css にあるため、ここには書かない。
+
+   このページは「手続きが難しそう」ではなく「まずは見学してみよう」と
+   思ってもらうことが目的のため、アイコンや余白を使って
+   親しみやすい印象になるよう意識している。
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. ご利用いただける方
+   -------------------------------------------------------------------------- */
+
+.eligibility-grid {
+  display: grid;
+  gap: 24px;
+}
+
+@media (min-width: 600px) {
+  .eligibility-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .eligibility-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.eligibility-card {
+  background-color: var(--color-bg-card);
+  border-radius: var(--radius-m);
+  padding: 32px 20px;
+  text-align: center;
+}
+
+.eligibility-card__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  border: 2px solid var(--color-main);
+  color: var(--color-navy);
+  margin: 0 auto 16px;
+}
+
+.eligibility-card__text {
+  font-size: 14px;
+  color: var(--color-text);
+  line-height: 1.7;
+}
+
+/* --------------------------------------------------------------------------
+   2. ご利用開始までの流れ(このページのメインコンテンツ)
+   -------------------------------------------------------------------------- */
+/* 縦に並ぶステップ形式。各ステップはアイコンの円を主役にし、
+   数字(STEP 1など)は控えめなラベルとして添えるだけにとどめている。
+   ステップの間には、サイト全体で使っている「曲線ライン」のモチーフを
+   矢印として挟み、他のページとの一体感を持たせている。 */
+
+.steps {
+  max-width: 580px;
+  margin: 0 auto;
+}
+
+.step-item {
+  text-align: center;
+  padding: 10px 0;
+}
+
+.step-item__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  background-color: rgba(240, 180, 41, 0.14); /* --color-mainの薄い色味 */
+  color: var(--color-navy);
+  margin: 0 auto 14px;
+}
+
+/* guide.jsがアイコンに直接width/height属性(36px)を指定しているため、
+   CSS側で上書きしてひとまわり大きく表示する(guide.js自体は変更していない) */
+.step-item__icon svg {
+  width: 42px;
+  height: 42px;
+}
+
+.step-item__number {
+  display: block;
+  font-size: 13px;
+  font-weight: var(--fw-bold);
+  color: var(--color-main-dark);
+  letter-spacing: 0.08em;
+  margin-bottom: 7px;
+}
+
+.step-item__title {
+  font-size: 21px;
+  font-weight: var(--fw-bold);
+  color: var(--color-navy);
+  margin-bottom: 10px;
+}
+
+.step-item__text {
+  font-size: 15px;
+  color: var(--color-text);
+  line-height: 1.8;
+  max-width: 420px;
+  margin: 0 auto;
+}
+
+/* ステップ間の曲線矢印(見出し下の装飾ラインと同じモチーフ)。
+   最後のステップの後ろには付けない。 */
+.step-item:not(:last-child)::after {
+  content: "";
+  display: block;
+  width: 32px;
+  height: 48px;
+  margin: 20px auto 4px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 48'%3E%3Cpath d='M16 4 C 16 16, 16 28, 16 36' stroke='%23D89A1B' stroke-width='2.4' fill='none' stroke-linecap='round'/%3E%3Cpath d='M8 30 L16 40 L24 30' stroke='%23D89A1B' stroke-width='2.4' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* --------------------------------------------------------------------------
+   3. 介護保険をまだ利用していない方へ(案内カード)
+   -------------------------------------------------------------------------- */
+/* カード自体の見た目(.notice-card)は common.css の共通コンポーネントを使用する
+   (ご利用についてページ・お問い合わせページなど、複数ページで使い回すため)。 */
+
+/* --------------------------------------------------------------------------
+   4. よくある質問
+   -------------------------------------------------------------------------- */
+/* <details>/<summary>というHTML標準のタグで開閉を実現しているため、
+   JavaScriptでの開閉処理(クリックイベントなど)は書いていない。 */
+
+.faq {
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.faq-item {
+  border-bottom: 1px solid var(--color-border);
+  padding: 18px 0;
+}
+
+.faq-item__question {
+  cursor: pointer;
+  list-style: none; /* Firefoxのデフォルトの三角マークを消す */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  font-weight: var(--fw-bold);
+  color: var(--color-navy);
+  font-size: 15px;
+}
+
+/* Chrome/Safariのデフォルトの三角マークを消す */
+.faq-item__question::-webkit-details-marker {
+  display: none;
+}
+
+/* 開閉状態を、自作の「+」「−」アイコンで表現する */
+.faq-item__question::after {
+  content: "+";
+  flex-shrink: 0;
+  font-size: 20px;
+  font-weight: var(--fw-regular);
+  color: var(--color-main-dark);
+}
+
+.faq-item[open] .faq-item__question::after {
+  content: "−";
+}
+
+.faq-item__answer {
+  margin-top: 12px;
+  font-size: 14px;
+  color: var(--color-text);
+  line-height: 1.8;
+}
