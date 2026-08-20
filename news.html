@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>お知らせ一覧｜印西市のリハビリ特化型デイサービス｜快福庵</title>
+  <meta name="description" content="「リハビリデイ快福庵　高花店」からのお知らせ一覧です。休業日のご案内や設備の導入、メディア掲載情報などをお知らせします。">
+
+  <!-- 見出し・本文ともに Noto Sans JP のみを使用し、太さの違いでメリハリをつける -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+  <!-- CSSの読み込み順に意味がある。
+       reset → common(全ページ共通) → news(このページ専用) の順 -->
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/news.css">
+</head>
+<body>
+
+  <!-- ==========================================================================
+       ヘッダー(他ページと共通構成)
+       ========================================================================== -->
+  <header class="header js-header">
+    <div class="container header__inner">
+
+      <a href="index.html" class="header__logo site-logo">
+        <img class="site-logo__image" src="images/common/logo.png" alt="リハビリデイ快福庵">
+      </a>
+
+      <div class="header__right">
+
+        <!-- PC用ナビゲーション(スマホでは非表示。CSS側で切り替え) -->
+        <nav class="header__nav">
+          <ul class="header__nav-list">
+            <li><a class="header__nav-link" href="index.html">ホーム</a></li>
+            <li><a class="header__nav-link" href="about.html">快福庵について</a></li>
+            <li><a class="header__nav-link" href="rehab.html">リハビリ紹介</a></li>
+            <li><a class="header__nav-link" href="flow.html">1日の流れ</a></li>
+            <li><a class="header__nav-link" href="guide.html">ご利用について</a></li>
+            <li><a class="header__nav-link" href="contact.html">お問い合わせ・アクセス</a></li>
+          </ul>
+        </nav>
+
+        <!-- 電話ボタン(PC・スマホ共通で常に表示) -->
+        <a class="header__tel-button" href="tel:" data-site-tel-link>
+          📞 <span data-site="tel"></span>
+        </a>
+
+        <!-- ハンバーガーメニュー(スマホのみ表示) -->
+        <button class="header__menu-icon js-menu-button" aria-label="メニューを開く" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- スマホ用ドロップダウンメニュー -->
+    <nav class="header__mobile-nav js-mobile-nav">
+      <ul class="header__mobile-nav-list">
+        <li><a class="header__mobile-nav-link" href="index.html">ホーム</a></li>
+        <li><a class="header__mobile-nav-link" href="about.html">快福庵について</a></li>
+        <li><a class="header__mobile-nav-link" href="rehab.html">リハビリ紹介</a></li>
+        <li><a class="header__mobile-nav-link" href="flow.html">1日の流れ</a></li>
+        <li><a class="header__mobile-nav-link" href="guide.html">ご利用について</a></li>
+        <li><a class="header__mobile-nav-link" href="contact.html">お問い合わせ・アクセス</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ==========================================================================
+         ページ上部の見出しエリア(写真のヒーローがないため、専用のシンプルな構成)
+         ========================================================================== -->
+    <section class="news-hero">
+      <div class="container">
+        <h1 class="news-hero__title">お知らせ</h1>
+        <p class="news-hero__note">リハビリデイ快福庵からのお知らせ一覧です</p>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         お知らせ一覧
+         js-news-list : js/news.js が data/news.json を読み込んで中身を描画する対象
+         (全件をここに表示する)
+         ========================================================================== -->
+    <section class="section">
+      <div class="container">
+        <div class="news-page-list__wrap">
+
+          <ul class="news-list js-news-list">
+            <!-- ここに js/news.js が data/news.json の内容を差し込みます(全件) -->
+          </ul>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==========================================================================
+       フッター(他ページと共通構成)
+       ========================================================================== -->
+  <footer class="footer">
+    <div class="container">
+
+      <div class="footer__logo site-logo">
+        <img class="site-logo__image" src="images/common/logo.png" alt="リハビリデイ快福庵">
+      </div>
+
+      <div class="footer__grid">
+
+        <div>
+          <p class="footer__heading">営業時間・住所</p>
+          <p class="footer__text" data-site="businessHours"></p>
+          <p class="footer__text" data-site="address"></p>
+          <a class="footer__text footer__map-link" data-site-href="googleMapUrl" target="_blank" rel="noopener">
+            Googleマップで見る ▶
+          </a>
+          <p class="footer__text">
+            電話:<span data-site="tel"></span>
+          </p>
+        </div>
+
+        <div>
+          <p class="footer__heading">メニュー</p>
+          <a class="footer__nav-link" href="index.html">ホーム</a>
+          <a class="footer__nav-link" href="about.html">快福庵について</a>
+          <a class="footer__nav-link" href="rehab.html">リハビリ紹介</a>
+          <a class="footer__nav-link" href="flow.html">1日の流れ</a>
+          <a class="footer__nav-link" href="guide.html">ご利用について</a>
+          <a class="footer__nav-link" href="contact.html">お問い合わせ・アクセス</a>
+          <a class="footer__nav-link" href="https://example.com/recruit/" target="_blank" rel="noopener">採用情報</a>
+        </div>
+
+      </div>
+
+      <!-- プライバシーポリシー・各種書類(PDF)へのリンク -->
+      <div class="footer__legal-links">
+        <a href="privacy.html" target="_blank" rel="noopener">プライバシーポリシー</a>
+        <a href="documents/unei-kitei.pdf" target="_blank" rel="noopener">運営規程(PDF)</a>
+        <a href="documents/juuyoujikou.pdf" target="_blank" rel="noopener">重要事項説明書(PDF)</a>
+      </div>
+
+      <p class="footer__copyright">&copy; 2026 リハビリデイ快福庵</p>
+
+    </div>
+  </footer>
+
+  <!-- common.js(ヘッダー・フッターの共通処理)と news.js(お知らせ一覧の描画)を読み込む -->
+  <script src="js/common.js"></script>
+  <script src="js/news.js"></script>
+
+</body>
+</html>

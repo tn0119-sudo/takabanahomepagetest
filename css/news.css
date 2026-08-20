@@ -1,0 +1,85 @@
+/* ==========================================================================
+   news.css
+
+   【このファイルの役割】
+   お知らせ一覧ページ(news.html)だけで使うスタイルをまとめる。
+   ヘッダー・フッターなど他ページと共通の部分は common.css にあるため、
+   ここには書かない。
+
+   このページには写真を使ったヒーローがないため、privacy.htmlと同じ考え方で
+   上部だけネイビー背景のシンプルな見出しエリアにしている(他ページの.heroの代わり)。
+
+   お知らせリスト自体の見た目(.news-list など)は、トップページ(index.html)側の
+   index.cssに既に定義されているが、このページはindex.cssを読み込まないため、
+   index.css側は変更せずに、このページ専用としてそのまま同じ内容をここに用意している。 */
+
+/* ページ上部の見出しエリア(写真の代わりに、ネイビー背景+白文字にしている) */
+.news-hero {
+  background-color: var(--color-navy);
+  color: #ffffff;
+  text-align: center;
+  padding-top: 140px; /* 固定ヘッダーの下に隠れないよう、余白を多めに取る */
+  padding-bottom: 56px;
+}
+
+.news-hero__title {
+  color: #ffffff; /* 見出しは基本ネイビーだが、ここは背景自体がネイビーのため白文字にする */
+  font-size: 28px;
+  margin-bottom: 12px;
+}
+
+.news-hero__note {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* お知らせ一覧は読みやすい幅に絞って中央に置く(privacy.htmlの本文と同じ考え方) */
+.news-page-list__wrap {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+/* --------------------------------------------------------------------------
+   お知らせ一覧そのものの見た目(index.cssの同名クラスと同一内容)
+   -------------------------------------------------------------------------- */
+/* お知らせは写真を使わず文字中心のため、余白を広めにとって
+   「文字は少なめ・余白は広く」のルールを保つ */
+.news-list {
+  border-top: 1px solid var(--color-border);
+}
+
+.news-item {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 8px 24px;
+  padding: 24px 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.news-item__date {
+  font-size: 13px;
+  color: var(--color-text-sub);
+  font-feature-settings: "tnum"; /* 数字の幅を揃えて読みやすくする */
+}
+
+.news-item__category {
+  font-size: 12px;
+  font-weight: var(--fw-bold);
+  color: var(--color-navy);
+  background-color: var(--color-bg-card);
+  padding: 4px 10px;
+  border-radius: 999px;
+}
+
+.news-item__title {
+  font-size: 15px;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .news-item__title {
+    width: auto;
+    flex: 1;
+  }
+}
